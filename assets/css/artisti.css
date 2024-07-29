@@ -3,40 +3,48 @@
         font-family: 'Circular';
         src: url(../fonts/CircularStd-Black.otf);
     }
-    
+
     body {
         font-family: 'Circular', sans-serif;
     }
-    
-    
+
+
     .gradient-background {
         background: linear-gradient(to top, #212529, rgb(48, 50, 47));
-        width: 100%; 
+        width: 100%;
     }
 
     #albumImg {
         background-image: url(https://placedog.net/500);
-         height: 50vh; 
-         background-repeat:no-repeat; 
-         background-size: cover; 
-         background-position: center; 
-         width: 100%;
-    }
-    .btn-active {
-        
-        border: 0.2px solid black; 
-        color: #fff;
-        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); 
+        height: 50vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
     }
 
-    .btn-active:focus, .btn-active:active {
+    .btn-active {
+
+        border: 0.2px solid black;
+        color: #fff;
+        box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-active:focus,
+    .btn-active:active {
         box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.02), 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
         outline: none;
     }
+
     .bi-play-fill {
         width: 500px;
     }
+
     .dog {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .gradient-footer {
+        background-image: linear-gradient(to top, #000000e8, #212529eb)
     }
