@@ -30,9 +30,16 @@ const getalbuminfo = function (album) {
   const albumimg = document.getElementById("album-cover");
   const albumtitle = document.getElementById("album-title");
   const albumyear = document.getElementById("album-year");
+  const albumtracks = document.getElementById("n-of-songs");
+  const albumduration = document.getElementById("album-duration");
   albumimg.setAttribute("src", `${album.cover_medium}`);
   albumtitle.innerText = album.title;
   albumyear.innerText = album.release_date.slice(0, 4);
+  albumtracks.innerText = album.nb_tracks
+  const hourdur = Math.floor(album.duration / 60)
+  const mindur = album.duration - (hourdur * 60)
+  albumduration.innerText = `${hourdur} ore e ${mindur} minutes`
+
 };
 
 const getsong = function (album) {
