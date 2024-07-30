@@ -15,7 +15,7 @@
     }
 
     #albumImg {
-        background-image: url(https://placedog.net/500);
+        /* background-image: url(https://placedog.net/500); */
         height: 50vh;
         background-repeat: no-repeat;
         background-size: cover;
