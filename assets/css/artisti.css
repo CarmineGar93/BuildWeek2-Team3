@@ -11,7 +11,6 @@
 
     .gradient-background {
         background: linear-gradient(to top, #212529, rgb(48, 50, 47));
-        width: 100%;
     }
 
     #albumImg {
