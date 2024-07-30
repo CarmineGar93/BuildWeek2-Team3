@@ -1,6 +1,13 @@
 const addressBarParameters = new URLSearchParams(location.search);
 const albumID = addressBarParameters.get("albumId");
 
+
+const playsong = function (mp3){
+  console.log(mp3)
+  const song = new Audio (`${mp3}`)
+  song.play()
+}
+
 const getAlbum = function () {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumID}`)
     .then((resp) => {
@@ -42,14 +49,15 @@ const getalbuminfo = function (album) {
 
 };
 
+
 const getsong = function (album) {
   const artist = album.contributors[0].name;
   album.tracks.data.forEach((track) => {
     console.log(track)
     const createdli = `        
         <li class="list-group-item d-flex justify-content-between align-items-start bg-black border-0">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold" onclick="playsong(${track.link})">${track.title}</div>
+          <div class="ms-2 me-auto" onclick="playsong('${track.preview}')">
+            <div class="fw-bold">${track.title}</div>
             <small class="text-muted">${artist}</small>
           </div> 
         </li>`
@@ -59,11 +67,6 @@ const getsong = function (album) {
   });
 };
 
-const playsong = function (link){
-    console.log("CIAOOOO")
-   const audio = new Audio(`${link}`)
-   audio.play()
-}
 
 const init = function () {
   getAlbum();
