@@ -7,6 +7,7 @@
   <title>Spotify - Homepage</title>
   <link rel="stylesheet" href="assets/css/bootstrap.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="/assets/css/artisti.css">
   <style>
     .btn-circle {
       border-radius: 50%;
@@ -58,67 +59,213 @@
 </head>
 
 <body class="bg-black">
-  <div class="container-fluid">
-    <div class="row">
-      <div id="dynamic-gradient-bg" class="col py-2 gradient">
-        <div class="d-none d-md-flex row align-items-center justify-content-between">
-          <div class="col-2 mx-2">
-            <button type="button" class="btn btn-dark btn-circle">
-              <h4><i class="bi bi-chevron-left"></i></h4>
-            </button>
-            <button type="button" class="btn btn-dark btn-circle">
-              <h4><i class="bi bi-chevron-right"></i></h4>
-            </button>
-          </div>
-          <div class="col-3">
-            <div class="mt-3 ms-2 rounded-pill profile bg-black d-flex align-content-center">
-              <img src="https://picsum.photos/300/300" alt="img" class="bg-white my-auto mx-1 rounded-circle">
-              <h4 class="text-secondary my-auto">profile name </h4>
+  <div class="structure">
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div
+                class="col-12 position-fixed  col-lg-3 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-scroll ">
+                <nav>
+                    <div class="container">
+                        <div class="row row-cols-3 row-cols-lg-1 py-3 g-1 g-lg-4">
+                            <div class="col text-center text-lg-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
+                                    class="bi bi-house-door-fill me-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                                </svg>
+                                <p class="mb-0 d-lg-inline">Home</p>
+                            </div>
+                            <div class="col text-center text-lg-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-search me-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                </svg>
+                                <p class="mb-0 d-lg-inline">Cerca</p>
+                            </div>
+                            <div class="col text-center text-lg-start">
+                                <svg width="25" height="25" viewBox="0 0 112 111" fill="none" class="me-2"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="8" height="111" fill="#C4C4C4" />
+                                    <rect x="24" width="8" height="111" fill="#C4C4C4" />
+                                    <rect width="7.96484" height="111.503"
+                                        transform="matrix(0.869849 -0.493319 0.506711 0.862116 48 14.7345)"
+                                        fill="#C4C4C4" />
+                                </svg>
+                                <p class="mb-0 d-lg-inline">La tua libreria</p>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container mt-2 d-none d-lg-block">
+                    <div class="row row-cols-1 py-3 g-4">
+                        <div class="col text-center text-lg-start rounded-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-plus-square me-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                            </svg>
+                            <p class="mb-0 d-lg-inline">Crea playlist</p>
+                        </div>
+                        <div class="col text-center text-lg-start d-flex">
+                            <div class="App__quick-link-featured-img rounded-1 text-center fs-5">♥</div>
+                            <p class="mb-0 d-lg-inline">Cerca</p>
+                        </div>
+                        <div class="col text-center text-lg-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-bookmark me-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                            </svg>
+                            <p class="mb-0 d-lg-inline">La tua libreria</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="playlistList" class="my-3 d-none d-lg-block">
+                    <ul class="list-unstyled ms-1">
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                    </ul>
+                </div>
             </div>
-          </div>
+            <div class="col-12 offset-lg-3 col-lg-6 px-0">
+                <main>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div id="dynamic-gradient-bg" class="col py-2 gradient">
+                        <div class="d-none d-md-flex row align-items-center justify-content-between">
+                          <div class="col-2 mx-2">
+                            <button type="button" class="btn btn-dark btn-circle">
+                              <h4><i class="bi bi-chevron-left"></i></h4>
+                            </button>
+                            <button type="button" class="btn btn-dark btn-circle">
+                              <h4><i class="bi bi-chevron-right"></i></h4>
+                            </button>
+                          </div>
+                          <div class="col-3">
+                            <div class="mt-3 ms-2 rounded-pill profile bg-black d-flex align-content-center">
+                              <img src="https://picsum.photos/300/300" alt="img" class="bg-white my-auto mx-1 rounded-circle">
+                              <h4 class="text-secondary my-auto">profile name </h4>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row my-4">
+                          <div class="col-12 d-flex col-md-4 justify-content-center">
+                            <img src="https://picsum.photos/300/300" alt="Album Cover" id="album-cover" class="img-fluid" />
+                          </div>
+                          <div class="col-8 d-none d-md-flex flex-column justify-content-end">
+                            <h2 class="fs-5">ALBUM</h2>
+                            <h1 class="fs-1 fw-bold" id="album-title">Album Title</h1>
+                            <div class="d-flex align-items-center fs-6">
+                              <img src="https://picsum.photos/25/25" id="artist-photo" alt="artist-photo" class="rounded-circle me-2" />
+                              <p class="m-0">
+                                <span class="fw-bold" id="artist-name">Artist Name</span> •
+                                <span id="album-year">2024</span> •
+                                <span id="n-of-songs">10</span> brani,
+                                <span class="opacity-50" id="album-duration">10 min 30 sec</span>.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="my-3 col-12 d-md-none d-flex flex-column justify-content-end">
+                            <h1 class="fs-1 fw-bold">Album Title</h1>
+                            <div class="d-flex align-items-center fs-6">
+                              <img src="https://picsum.photos/25/25" alt="artist-photo" class="rounded-circle me-2" />
+                              <p class="m-0">
+                                <span class="fw-bold" id="artist-name">Artist Name</span>
+                              </p>
+                            </div>
+                            <div>
+                              <p class="my-2 opacity-50">
+                                <span id="artist-name">Album</span> •
+                                <span id="album-year">2024</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <ol class="list-group list-group-numbered" id="song-list">
+                      </ol>
+                    </div>
+                  </div>
+                
+                </main>
+            </div>
+            <div class="col-3 d-none d-lg-block">
+                <div id="song-info-block" class="d-flex flex-column gradient-footer vh-lg-100 overflow-x-scroll position-lg-fixed top-lg-0">
+                    <div class="d-flex gap-4 pt-3 ms-3 align-items-center mb-3">
+                        <h3 class="h6 mb-0">Nome Canzone</h3>
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                            class="Svg-sc-ytk21e-0 dYnaPI ms-auto" width="17" height="17" fill="#A7A7A7">
+                            <path
+                                d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+                            </path>
+                        </svg>
+                        <button type="button" class="btn-close me-3" aria-label="Close"></button>
+                    </div>
+                    <div class="scrollable">
+                        <div class="song-card d-flex flex-column justify-content-center p-3 gap-2">
+                            <img src="./assets/imgs/main/image-1.jpg" alt="" class="rounded-3" />
+                            <div class="d-flex align-items-center">
+                                <div id="song-card-info">
+                                    <h2>Titolo Canzone</h2>
+                                    <h3 class="h6">Artista</h3>
+                                </div>
+                                <div class="ms-auto">
+                                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                        class="Svg-sc-ytk21e-0 dYnaPI" width="17" height="17" fill="white">
+                                        <path
+                                            d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z">
+                                        </path>
+                                        <path
+                                            d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center p-3">
+                            <div class="card border-0">
+                                <img src="./assets/imgs/main/image-1.jpg" class="card-img-top" alt="..." />
+                                <p class="position-absolute top-0 mt-3 ms-3">
+                                    About the artist
+                                </p>
+                                <div class="card-body bg-black rounded-3">
+                                    <h5 class="card-title">Artista</h5>
+                                    <div class="d-flex align-items-center">
+                                        <p class="text-ligth mb-0">111,963 monthly listeners</p>
+                                        <button class="btn btn-outline-light rounded-pill px-2 py-1 ms-auto">
+                                            Follow
+                                        </button>
+                                    </div>
+                                    <p class="card-text text-ligth mt-3">
+                                        Descrizione artista
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row my-4">
-          <div class="col-12 d-flex col-md-4 justify-content-center">
-            <img src="https://picsum.photos/300/300" alt="Album Cover" id="album-cover" class="img-fluid" />
-          </div>
-          <div class="col-8 d-none d-md-flex flex-column justify-content-end">
-            <h2 class="fs-5">ALBUM</h2>
-            <h1 class="fs-1 fw-bold" id="album-title">Album Title</h1>
-            <div class="d-flex align-items-center fs-6">
-              <img src="https://picsum.photos/25/25" id="artist-photo" alt="artist-photo" class="rounded-circle me-2" />
-              <p class="m-0">
-                <span class="fw-bold" id="artist-name">Artist Name</span> •
-                <span id="album-year">2024</span> •
-                <span id="n-of-songs">10</span> brani,
-                <span class="opacity-50" id="album-duration">10 min 30 sec</span>.
-              </p>
-            </div>
-          </div>
-          <div class="my-3 col-12 d-md-none d-flex flex-column justify-content-end">
-            <h1 class="fs-1 fw-bold">Album Title</h1>
-            <div class="d-flex align-items-center fs-6">
-              <img src="https://picsum.photos/25/25" alt="artist-photo" class="rounded-circle me-2" />
-              <p class="m-0">
-                <span class="fw-bold" id="artist-name">Artist Name</span>
-              </p>
-            </div>
-            <div>
-              <p class="my-2 opacity-50">
-                <span id="artist-name">Album</span> •
-                <span id="album-year">2024</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <ol class="list-group list-group-numbered" id="song-list">
-      </ol>
-    </div>
-  </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
