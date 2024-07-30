@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/artisti.css">
+    <style>
+      .scrollable{
+        height: 100vh;
+  overflow: scroll;
+
+      }
+    </style>
 </head>
 
 <body data-bs-theme="dark">
-    <main>
+    <div class="structure">
         <div class="container-fluid">
             <div class="row vh-100">
-                <div class="col-12 position-fixed position-lg-static col-lg-3 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-scroll">
+                <div class="col-12 position-fixed position-lg-static col-lg-3 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-scroll ">
                     <nav>
                         <div class="container">
                             <div class="row row-cols-3 row-cols-lg-1 py-3 g-1 g-lg-4">
@@ -70,31 +77,121 @@
                         </div>
                     </div>
                     <div id="playlistList" class="my-3 d-none d-lg-block">
-                        <ul class="list-unstyled ms-3">
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>
-                            <li class="my-2">Genarro</li>                          
-                        </ul>
+                      <ul class="list-unstyled ms-1">
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                        <li class="my-2"><img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="">Genarro</li>
+                    </ul>
+
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 px-0">
                     PAPPA
                 </div>
                 <div class="col-3 d-none d-lg-block">
-                    CICCIA
+                  <div
+                  id="song-info-block"
+                  class="d-flex flex-column gradient-footer vh-lg-100 overflow-x-scroll"
+                >
+                  <div class="d-flex gap-4 pt-3 ms-3 align-items-center mb-3">
+                    <h3 class="h6 mb-0">Nome Canzone</h3>
+                    <svg
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      class="Svg-sc-ytk21e-0 dYnaPI ms-auto"
+                      width="17"
+                      height="17"
+                      fill="#A7A7A7"
+                    >
+                      <path
+                        d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                      ></path>
+                    </svg>
+                    <button
+                      type="button"
+                      class="btn-close me-3"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="scrollable">
+                    <div
+                      class="song-card d-flex flex-column justify-content-center p-3 gap-2"
+                    >
+                      <img
+                        src="./assets/imgs/main/image-1.jpg"
+                        alt=""
+                        class="rounded-3"
+                      />
+                      <div class="d-flex align-items-center">
+                        <div id="song-card-info">
+                          <h2>Titolo Canzone</h2>
+                          <h3 class="h6">Artista</h3>
+                        </div>
+                        <div class="ms-auto">
+                          <svg
+                            data-encore-id="icon"
+                            role="img"
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            class="Svg-sc-ytk21e-0 dYnaPI"
+                            width="17"
+                            height="17"
+                            fill="white"
+                          >
+                            <path
+                              d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+                            ></path>
+                            <path
+                              d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3">
+                      <div class="card border-0">
+                        <img
+                          src="./assets/imgs/main/image-1.jpg"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <p class="position-absolute top-0 mt-3 ms-3">
+                          About the artist
+                        </p>
+                        <div class="card-body bg-black rounded-3">
+                          <h5 class="card-title">Artista</h5>
+                          <div class="d-flex align-items-center">
+                            <p class="text-ligth mb-0">111,963 monthly listeners</p>
+                            <button
+                              class="btn btn-outline-light rounded-pill px-2 py-1 ms-auto"
+                            >
+                              Follow
+                            </button>
+                          </div>
+                          <p class="card-text text-ligth mt-3">
+                            Descrizione artista
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                    </div>
             </div>
         </div>
-    </main>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

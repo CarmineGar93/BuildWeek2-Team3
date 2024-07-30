@@ -47,7 +47,7 @@ const getsong = function (album) {
   album.tracks.data.forEach((track) => {
     console.log(track)
     const createdli = `        
-        <li class="list-group-item d-flex justify-content-between align-items-start">
+        <li class="list-group-item d-flex justify-content-between align-items-start bg-black border-0">
           <div class="ms-2 me-auto">
             <div class="fw-bold" onclick="playsong(${track.link})">${track.title}</div>
             <small class="text-muted">${artist}</small>
