@@ -56,4 +56,24 @@
         box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
         margin-right: 16px;
         background-image: linear-gradient(to bottom right, blue, white)
-    }    
+    }
+    
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    .banner-img img {
+      width: 10rem;
+    }
+    .day-img img {
+      width: 3rem;
+    }
+    #divimg {
+      height: 48px;
+    }
+    .imgProfilo {
+      width: 2em;
+    }
+    .backgroundOpacity {
+      background-color: rgba(0, 0, 0, 0.171);
+    }
+    .bg-body-gray {
+      background-color: #3232325d;
+    }
