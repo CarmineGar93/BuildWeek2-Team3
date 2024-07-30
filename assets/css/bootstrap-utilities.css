@@ -2580,6 +2580,9 @@
   .position-sm-sticky {
     position: sticky !important;
   }
+  .vh-sm-100 {
+    height: 100vh !important;
+  }
   .flex-sm-fill {
     flex: 1 1 auto !important;
   }
@@ -3155,6 +3158,9 @@
   }
   .position-md-sticky {
     position: sticky !important;
+  }
+  .vh-md-100 {
+    height: 100vh !important;
   }
   .flex-md-fill {
     flex: 1 1 auto !important;
@@ -3732,6 +3738,9 @@
   .position-lg-sticky {
     position: sticky !important;
   }
+  .vh-lg-100 {
+    height: 100vh !important;
+  }
   .flex-lg-fill {
     flex: 1 1 auto !important;
   }
@@ -4308,6 +4317,9 @@
   .position-xl-sticky {
     position: sticky !important;
   }
+  .vh-xl-100 {
+    height: 100vh !important;
+  }
   .flex-xl-fill {
     flex: 1 1 auto !important;
   }
@@ -4883,6 +4895,9 @@
   }
   .position-xxl-sticky {
     position: sticky !important;
+  }
+  .vh-xxl-100 {
+    height: 100vh !important;
   }
   .flex-xxl-fill {
     flex: 1 1 auto !important;

@@ -47,3 +47,12 @@
     .gradient-footer {
         background-image: linear-gradient(to top, #000000e8, #212529eb)
     }
+
+    .App__quick-link-featured-img {
+        height: 25px;
+        width: 25px;
+        background-color: #efefef;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+        margin-right: 16px;
+        background-image: linear-gradient(to bottom right, blue, white)
+    }    
