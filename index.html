@@ -4,20 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>spotify demo</title>
-    <link rel="stylesheet" href="home.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body data-bs-theme="dark">
     <!--     //container principale -->
     <main class="bg-black">
       <div class="container-fluid">
         <div class="row g-2">
-          <aside class="d-none d-lg-block col-lg-4 col-xl-3">
+          <!-- <aside class="d-none d-lg-block col-lg-4 col-xl-3">
             <div class="d-flex flex-column rounded-3 bg-body-tertiary mt-2">
               <div id="index" class="d-flex gap-2 pt-3 ms-3 active">
                 <a
@@ -168,62 +173,31 @@
                 </div>
               </div>
             </div>
-          </aside>
+          </aside> -->
+
+          <!-- NAV DELLA PARTE CENTRALE E INIZIO CENTRO -->
           <div
-            class="col-12 col-lg-8 col-xl-6 rounded-3 bg-body-tertiary rounded-3"
+            class="col-12 col-lg-8 col-xl-6 rounded-3 bg-body-gray rounded-3"
           >
             <div id="home" class="mt-2 container rounded-3 scrollable">
               <div
                 id="nav"
-                class="d-flex container-fluid gap-2 bg-black align-items-center pt-3 rounded-3 pb-3 px-3"
+                class="d-flex container-fluid gap-2 bg-body-tertiary align-items-center pt-3 rounded-3 pb-3 px-3"
               >
                 <button class="border-0 rounded-circle">
-                  <svg
-                    data-encore-id="icon"
-                    role="img"
-                    aria-hidden="true"
-                    class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF"
-                    viewBox="0 0 16 16"
-                    fill="white"
-                  >
-                    <path
-                      d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
-                    ></path>
-                  </svg>
+                  <i class="bi bi-chevron-left"></i>
                 </button>
                 <button class="border-0 rounded-circle">
-                  <svg
-                    data-encore-id="icon"
-                    role="img"
-                    aria-hidden="true"
-                    class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF mt-0"
-                    viewBox="0 0 16 16"
-                    fill="#A7A7A7"
-                  >
-                    <path
-                      d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
-                    ></path>
-                  </svg>
+                  <i class="bi bi-chevron-right"></i>
                 </button>
                 <button class="border-0 rounded-circle ms-auto">
-                  <svg
-                    data-encore-id="icon"
-                    role="img"
-                    aria-hidden="true"
-                    viewBox="0 0 16 16"
-                    class="Svg-sc-ytk21e-0 dYnaPI"
-                    fill="#A7A7A7"
-                  >
-                    <path
-                      d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
-                    ></path>
-                  </svg>
+                  <i class="bi bi-bell"></i>
                 </button>
                 <button class="border-0 rounded-circle p-0">
                   <img
-                    src="https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/273982773_5405451136150422_8496653267509340017_n.jpg?stp=cp0_dst-jpg_p50x50&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_ohc=dzSNluL-Ie0Q7kNvgHB_Q0C&amp;_nc_ht=scontent-ams2-1.xx&amp;edm=AP4hL3IEAAAA&amp;oh=00_AYC0CUY3yTa9W_xOM5Izca0Wflp8wP5veFAsvYYjP3lJ_Q&amp;oe=6676E8D7"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MEgRnmCwxyL3bBw41AFqhCj-f2Z8rPzjBw&s"
                     alt=""
-                    class="rounded-circle"
+                    class="rounded-circle img-fluid imgProfilo"
                   />
                 </button>
               </div>
@@ -233,7 +207,11 @@
                   class="d-flex bg-black rounded-3 gap-3 my-3 album p-3"
                 >
                   <div class="banner-img">
-                    <img src="./assets/imgs/main/image-10.jpg" alt="album" />
+                    <img
+                      src="./assets/imgs/main/image-10.jpg"
+                      alt="album"
+                      class="img-fluid"
+                    />
                   </div>
                   <div class="d-flex flex-column justify-content-center gap-2">
                     <h6>ALBUM</h6>
@@ -382,6 +360,316 @@
                   </div>
                 </section>
               </div>
+              <section id="bo burnham" class="row">
+                <div class="col-12 d-flex align-items-center mb-3 mt-3">
+                  <h2>Bo Burnham</h2>
+                  <a class="text-secondary ms-auto"></a>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-md-block d-lg-block"
+                >
+                  <div class="card border-0 artist-main backgroundOpacity">
+                    <img
+                      class="card-img-top"
+                      src="https://e-cdns-images.dzcdn.net/images/artist/9885b253f8d4645b61533832f52c62be/1000x1000-000000-80-0-0.jpg"
+                      alt="Bo Burnham"
+                    />
+                    <div class="card-body d-flex flex-column px-0 artist-title">
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./artist.html?artistId=73437"
+                        >Bo Burnham</a
+                      >
+                      <p class="text-secondary">Artist</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/e8bac43cbf62bcd9a7e338175c8b652a/1000x1000-000000-80-0-0.jpg"
+                        alt="INSIDE (DELUXE)"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=321691557"
+                        >INSIDE (DELUXE)</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=73437"
+                        >Bo Burnham</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-none d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/e40e0e2af0ea8eded8f8d99437e9e899/1000x1000-000000-80-0-0.jpg"
+                        alt="INSIDE"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle icon-link-hover"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=241210392"
+                        >INSIDE</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=73437"
+                        >Bo Burnham</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-none d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/089d29442357d1089313ba8c95b85c68/1000x1000-000000-80-0-0.jpg"
+                        alt="THE INSIDE OUTTAKES"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=325631587"
+                        >THE INSIDE OUTTAKES</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=73437"
+                        >Bo Burnham</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--  -->
+              <section id="good-boy-daisy" class="row">
+                <div class="col-12 d-flex align-items-center mb-3 mt-2">
+                  <h2 class="h3">Good Boy Daisy</h2>
+                  <a class="text-secondary ms-auto"></a>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-md-block d-lg-block"
+                >
+                  <div class="card border-0 artist-main backgroundOpacity">
+                    <img
+                      class="card-img-top"
+                      src="https://e-cdns-images.dzcdn.net/images/artist/967a14d2b73af2b6a65ff4a96a6a6173/1000x1000-000000-80-0-0.jpg"
+                      alt="Good Boy Daisy"
+                    />
+                    <div class="card-body d-flex flex-column px-0 artist-title">
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./artist.html?artistId=11156060"
+                        >Good Boy Daisy</a
+                      >
+                      <p class="text-secondary">Artist</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/901c19ac7c192266005c89bd53f40588/1000x1000-000000-80-0-0.jpg"
+                        alt="Greenroom"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=327840447"
+                        >Greenroom</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=11156060"
+                        >Good Boy Daisy</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-none d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/8fc69496a595c84d099a0f51716886fa/1000x1000-000000-80-0-0.jpg"
+                        alt="Never Learn (feat. The Wrecks)"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=197876592"
+                        >Never Learn (feat. The Wrecks)</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=11156060"
+                        >Good Boy Daisy</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-6 col-md-3 rounded-3 px-3 py-1 rounded-3 col-lg-3 col-xl-3 d-none d-md-block d-lg-block"
+                >
+                  <div class="card border-0 album-main backgroundOpacity">
+                    <div class="position-relative">
+                      <img
+                        class="card-img-top"
+                        src="https://e-cdns-images.dzcdn.net/images/cover/967a14d2b73af2b6a65ff4a96a6a6173/1000x1000-000000-80-0-0.jpg"
+                        alt="It Can't Be That Hard"
+                      /><button
+                        class="btn play-btn position-absolute bottom-0 end-0 p-3 bg-success rounded-circle"
+                      >
+                        <svg
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          class="Svg-sc-ytk21e-0 bneLcE"
+                          width="24"
+                          fill="black"
+                          height="24"
+                        >
+                          <path
+                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="card-body d-flex flex-column justify-content-between px-0 album-title"
+                    >
+                      <a
+                        class="card-title h6 line-clamp-1"
+                        href="./album.html?albumId=250167092"
+                        >It Can't Be That Hard</a
+                      ><a
+                        class="card-text text-secondary album-artist line-clamp-1"
+                        href="./artist.html?artistId=11156060"
+                        >Good Boy Daisy</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--  -->
               <footer id="footer" class="container mt-3">
                 <div class="row mb-5">
                   <div class="col-md-6 col-lg-4 col-xl-2">
