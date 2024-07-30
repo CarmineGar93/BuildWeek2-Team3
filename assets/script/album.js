@@ -59,11 +59,11 @@ const getsong = function (album) {
   });
 };
 
-// const playsong = function (link){
-//     console.log("CIAOOOO")
-//     const audio = new Audio(`${link}`)
-//     audio.play()
-// }
+const playsong = function (link){
+    console.log("CIAOOOO")
+   const audio = new Audio(`${link}`)
+   audio.play()
+}
 
 const init = function () {
   getAlbum();

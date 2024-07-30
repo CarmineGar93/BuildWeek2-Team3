@@ -25,10 +25,33 @@ const addtrack = function(id){
     })
     .then((top) => {
         console.log(top)
+        writetop(top.data)
     })
     .catch((err) => {
         console.log("Error", err);
     });
+}
+
+const writetop = function(songs){
+    const topolist = document.getElementById("top-list")
+    topolist.innerHTML = ''
+
+    for(let i = 0; i < 5; i++){
+        const li =`
+        <li class="d-flex align-items-center mb-3 list-group-item border-0">
+          <div>
+          <img src="${songs[i].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
+           </div>
+        <div>
+         <p class="ms-3 font-weight-bold mb-1">${songs[i].title}</p>
+         <p class="ms-3 mb-0">${songs[i].rank}</p>
+        </div>
+        </li>`
+
+        topolist.innerHTML = topolist.innerHTML + li
+    
+    }
+
 }
 
 const getartistinfo = function(artist){
