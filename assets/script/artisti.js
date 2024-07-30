@@ -17,7 +17,7 @@ const getAlbum = function () {
     });
 };
 
-const addtrack = function(id){
+const addtracks = function(id){
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=50`)
     .then((resp) => {
         if(resp.ok)return resp.json()
@@ -33,8 +33,8 @@ const addtrack = function(id){
 }
 
 const writetop = function(songs){
-    const topolist = document.getElementById("top-list")
-    topolist.innerHTML = ''
+    const topList = document.getElementById("top-list")
+    topList.innerHTML = ''
 
     for(let i = 0; i < 5; i++){
         const li =`
@@ -48,7 +48,7 @@ const writetop = function(songs){
         </div>
         </li>`
 
-        topolist.innerHTML = topolist.innerHTML + li
+        topList.innerHTML = topList.innerHTML + li
     
     }
 
@@ -57,9 +57,11 @@ const writetop = function(songs){
 const getartistinfo = function(artist){
     const artistname = document.getElementById("artistName")
     const artistimg = document.getElementById("albumImg")
+    const likedimg = document.getElementById("liked")
     artistimg.style.backgroundImage = `url("${artist.picture_xl}")`
+    likedimg.setAttribute("src", `${artist.picture_xl}`)
     artistname.innerText = artist.name
-    addtrack(artist.id)
+    addtracks(artist.id)
 }
 
 const init = function () {
