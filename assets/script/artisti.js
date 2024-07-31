@@ -12,19 +12,18 @@ const getRandomSong = function (a_b, list) {
       }
     })
     .then((data) => {
-      if (data.error)
-        getRand(list); // se l'id cercato non esiste richiama la funzione
-      else {
+      if (data.error) getRand(list);
+      // if (data.name && data.nb_album < 3) getRand(list, 'artist');
+      // else {
         if (data.title)
           writeAlbum(
             data,
             list
           ); // gli do dati di api e la lista per poi scriverci il list-item
         else writeArtist(data, list);
-      }
+      // }
     })
     .catch((err) => {
-      alert(err);
     });
 };
 
@@ -54,11 +53,13 @@ const writeArtist = function (artist, list) {
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const getRand = function (list) {
+const getRand = function (list, string) {
   let A_B = "";
   if (randomInt(0, 1) === 0) A_B = "album";
   else A_B = "artist";
-  getRandomSong(A_B, list);
+
+  if (string) getRandomSong(string, list);
+  else getRandomSong(A_B, list);
 };
 
 const getAlbum = function () {
@@ -73,7 +74,6 @@ const getAlbum = function () {
       getartistinfo(data);
     })
     .catch((err) => {
-      console.log("Error", err);
     });
 };
 
@@ -87,16 +87,19 @@ const addtracks = function (id) {
     })
     .then((top) => {
       console.log(top);
-      writetop(top.data);
+      writetop(top);
     })
     .catch((err) => {
-      console.log("Error", err);
     });
 };
 
-const writetop = function (songs) {
+const writetop = function (top) {
+  const songs = top.data
   const topList = document.getElementById("top-list");
   topList.innerHTML = "";
+  if(top.total === 0)
+    topList.innerHTML = `
+  <li class='display-1 text-success'> ARTISTA FALLITO </li>`
 
   for (let j = 0; j < 5; j++) {
     const li = `
