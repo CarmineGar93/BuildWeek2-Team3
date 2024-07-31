@@ -78,7 +78,7 @@
     }
 
     .fixed-bottom-container {
-      background-image: linear-gradient(to top, #000000e8, #212529eb);
+      background-image: linear-gradient(to top, #212529ac, rgba(0, 128, 0, 0.737));
       color: white;
     }
     
@@ -95,4 +95,12 @@
 
     .color-navbar {
       background-color: #272a2cc5;
+    }
+
+    .bottom-custom {
+      bottom: 82.61px;
+    }
+
+    .padding-custom {
+      padding: 2px 0;
     }
