@@ -1,5 +1,51 @@
 const addressBarParameters = new URLSearchParams(location.search);
 const albumID = addressBarParameters.get("albumId");
+const btnPlay = document.getElementById('playIcon');
+const artistPlayed = document.getElementById('artistPlayed')
+const songPlayed = document.getElementById('songPlayed')
+let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
+let playerBarFill = document.querySelector(".player-bar-fill")
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+class mySong {
+  constructor(_src, _title, _artist) {
+    this.src = _src,
+    this.title = _title
+    this.artist = _artist
+  }
+}
+const audio = document.getElementById('audio');
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  playerBarFill.style.width = `${progress}%`
+  currentTimeElement.textContent = formatTime(audio.currentTime)
+  if (audio.currentTime === audio.duration) {
+    btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                  class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                  <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+              </svg>`
+             
+  }
+});
+btnPlay.addEventListener('click', () => {
+  if (audio.paused) {
+      audio.play();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
+                </svg>`
+  } else {
+      audio.pause();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                </svg>`
+  } 
+});
 
 const getRandomSong = function (a_b, list) {
   const id = randomInt(0, 999999);
@@ -63,10 +109,16 @@ const getRand = function (list, string) {
 };
 
 
-const playsong = function (mp3){
-  console.log(mp3)
-  const song = new Audio (`${mp3}`)
-  song.play()
+const playsong = function (mp3, title, artist){
+  artistPlayed.innerText = artist
+  songPlayed.innerText = title
+  audio.src = mp3
+  audio.play()
+  btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
+                </svg>`  
+  const songToPlay = new mySong(mp3, title, artist)
+  localStorage.setItem('listened', JSON.stringify(songToPlay))
 }
 
 const getAlbum = function () {
@@ -116,7 +168,7 @@ const getsong = function (album) {
     console.log(track)
     const createdli = `        
         <li class="list-group-item d-flex justify-content-between align-items-start bg-black border-0">
-          <div class="ms-2 me-auto" onclick="playsong('${track.preview}')">
+          <div class="ms-2 me-auto" onclick="playsong('${track.preview}', '${track.title}', '${artist}')">
             <div class="fw-bold">${track.title}</div>
             <small class="text-muted">${artist}</small>
           </div> 
@@ -137,28 +189,6 @@ const init = function () {
   getAlbum();
 };
 
-document.getElementById("play-icon").addEventListener("click", function () {
-  let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
-  let playerBarFill = document.querySelector(".player-bar-fill"); // Elemento per la parte riempita della barra
-  let duration = 30;
-  let currentTime = 0;
-  let interval = setInterval(function () {
-    // Imposta un intervallo che si ripete ogni secondo
-    if (currentTime >= duration) {
-      // Se il tempo corrente ha raggiunto la durata totale
-      clearInterval(interval); // Ferma l'intervallo
-      return;
-    }
-    currentTime++;
-    let minutes = Math.floor(currentTime / 60);
-    let seconds = currentTime % 60;
-    currentTimeElement.textContent =
-      minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-    // incremento dei secondi
-    playerBarFill.style.width = (currentTime / duration) * 100 + "%";
-    // la sbarra si va riempendo in base al tmepo
-  }, 1000); // millisecondi tradotti in secondi
-});
 
 window.addEventListener("load", function () {
   init();
