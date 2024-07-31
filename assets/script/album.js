@@ -137,6 +137,29 @@ const init = function () {
   getAlbum();
 };
 
+document.getElementById("play-icon").addEventListener("click", function () {
+  let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
+  let playerBarFill = document.querySelector(".player-bar-fill"); // Elemento per la parte riempita della barra
+  let duration = 30;
+  let currentTime = 0;
+  let interval = setInterval(function () {
+    // Imposta un intervallo che si ripete ogni secondo
+    if (currentTime >= duration) {
+      // Se il tempo corrente ha raggiunto la durata totale
+      clearInterval(interval); // Ferma l'intervallo
+      return;
+    }
+    currentTime++;
+    let minutes = Math.floor(currentTime / 60);
+    let seconds = currentTime % 60;
+    currentTimeElement.textContent =
+      minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    // incremento dei secondi
+    playerBarFill.style.width = (currentTime / duration) * 100 + "%";
+    // la sbarra si va riempendo in base al tmepo
+  }, 1000); // millisecondi tradotti in secondi
+});
+
 window.addEventListener("load", function () {
   init();
 });
