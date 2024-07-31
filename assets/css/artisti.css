@@ -23,6 +23,12 @@
         width: 100%;
     }
 
+    @media screen and (min-width: 998px) {
+      #albumImg {
+        height: 75vh;
+      }
+    }
+
     .btn-active {
 
         border: 0.2px solid black;
@@ -78,7 +84,7 @@
     }
 
     .fixed-bottom-container {
-      background-image: linear-gradient(to top, #212529ac, rgba(0, 128, 0, 0.737));
+      background-image: linear-gradient(to top, #212529fe, #198754);
       color: white;
     }
     
@@ -104,3 +110,13 @@
     .padding-custom {
       padding: 2px 0;
     }
+
+    .scrollable {
+      height: 100vh;
+      overflow: scroll;
+
+  }
+    ul li img {
+      width: 40px;
+      height: 40px;
+  }
