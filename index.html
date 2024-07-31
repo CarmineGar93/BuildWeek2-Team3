@@ -634,7 +634,7 @@
                             d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5" />
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                        class="bi bi-play-circle-fill mx-2" viewBox="0 0 16 16">
+                        class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
                         <path
                             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
                     </svg>
@@ -650,8 +650,9 @@
                     </svg>
                 </div>
                 <div class="d-flex align-items-center">
-                    <span class="time">0:00</span>
-                    <div class="player-bar mx-2"></div>
+                    <span class="time" id="current-time">0:00</span>
+                    <div class="player-bar mx-2"><div class="player-bar-fill"></div></div>
+                    
                     <span class="time">3:30</span>
                 </div>
             </div>

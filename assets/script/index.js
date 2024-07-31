@@ -4,12 +4,12 @@ const getRandomSong = function (a_b, list) {
         .then((resp) => {
             if (resp.ok) return resp.json();
             else {
-                getRand();// se la risposta non è ok allora richiama la funzione
+                getRand(list);// se la risposta non è ok allora richiama la funzione
                 throw new Error("errore nella chiamata della api");
             }
         })
         .then((data) => {
-            if (data.error) getRand(); // se l'id cercato non esiste richiama la funzione 
+            if (data.error) getRand(list); // se l'id cercato non esiste richiama la funzione 
             else {
                 if (data.title) writeAlbum(data, list); // gli do dati di api e la lista per poi scriverci il list-item
                 else writeArtist(data, list);
@@ -60,6 +60,28 @@ const init = function () {
         getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
     }
 };
+
+document.getElementById("play-icon").addEventListener("click", function () {
+    let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
+    let playerBarFill = document.querySelector(".player-bar-fill"); // Elemento per la parte riempita della barra
+    let duration = 30;
+    let currentTime = 0;
+    let interval = setInterval(function () {
+      // Imposta un intervallo che si ripete ogni secondo
+      if (currentTime >= duration) {
+        // Se il tempo corrente ha raggiunto la durata totale
+        clearInterval(interval); // Ferma l'intervallo
+        return;
+      }
+      currentTime++;
+      let minutes = Math.floor(currentTime / 60);
+      let seconds = currentTime % 60;
+      currentTimeElement.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+      // incremento dei secondi
+      playerBarFill.style.width = (currentTime / duration) * 100 + "%";
+      // la sbarra si va riempendo in base al tmepo
+    }, 1000); // millisecondi tradotti in secondi
+  });
 
 window.addEventListener("load", function () {
     init();

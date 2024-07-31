@@ -4,23 +4,28 @@ const artistiID = addressBarParameters.get("artistiId");
 const getRandomSong = function (a_b, list) {
   const id = randomInt(0, 999999);
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/${a_b}/${id}`)
-      .then((resp) => {
-          if (resp.ok) return resp.json();
-          else {
-              getRand();// se la risposta non è ok allora richiama la funzione
-              throw new Error("errore nella chiamata della api");
-          }
-      })
-      .then((data) => {
-          if (data.error) getRand(); // se l'id cercato non esiste richiama la funzione 
-          else {
-              if (data.title) writeAlbum(data, list); // gli do dati di api e la lista per poi scriverci il list-item
-              else writeArtist(data, list);
-          }
-      })
-      .catch((err) => { 
-          alert(err)
-      });
+    .then((resp) => {
+      if (resp.ok) return resp.json();
+      else {
+        getRand(list); // se la risposta non è ok allora richiama la funzione
+        throw new Error("errore nella chiamata della api");
+      }
+    })
+    .then((data) => {
+      if (data.error)
+        getRand(list); // se l'id cercato non esiste richiama la funzione
+      else {
+        if (data.title)
+          writeAlbum(
+            data,
+            list
+          ); // gli do dati di api e la lista per poi scriverci il list-item
+        else writeArtist(data, list);
+      }
+    })
+    .catch((err) => {
+      alert(err);
+    });
 };
 
 const writeAlbum = function (album, list) {
@@ -56,8 +61,6 @@ const getRand = function (list) {
   getRandomSong(A_B, list);
 };
 
-
-
 const getAlbum = function () {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistiID}`)
     .then((resp) => {
@@ -74,63 +77,62 @@ const getAlbum = function () {
     });
 };
 
-const addtracks = function(id){
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=50`)
+const addtracks = function (id) {
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=50`
+  )
     .then((resp) => {
-        if(resp.ok)return resp.json()
-            else throw new Error("errore API")
+      if (resp.ok) return resp.json();
+      else throw new Error("errore API");
     })
     .then((top) => {
-        console.log(top)
-        writetop(top.data)
+      console.log(top);
+      writetop(top.data);
     })
     .catch((err) => {
-        console.log("Error", err);
+      console.log("Error", err);
     });
-}
+};
 
-const writetop = function(songs){
-    const topList = document.getElementById("top-list")
-    topList.innerHTML = ''
+const writetop = function (songs) {
+  const topList = document.getElementById("top-list");
+  topList.innerHTML = "";
 
-    for(let i = 0; i < 5; i++){
-        const li =`
+  for (let j = 0; j < 5; j++) {
+    const li = `
         <li class="d-flex align-items-center mb-3 list-group-item border-0">
           <div>
-          <img src="${songs[i].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
+          <img src="${songs[j].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
            </div>
         <div>
-         <p class="ms-3 font-weight-bold mb-1">${songs[i].title}</p>
-         <p class="ms-3 mb-0">${songs[i].rank}</p>
+         <p class="ms-3 font-weight-bold mb-1">${songs[j].title}</p>
+         <p class="ms-3 mb-0">${songs[j].rank}</p>
         </div>
-        </li>`
+        </li>`;
 
-        topList.innerHTML = topList.innerHTML + li
-    
-    }
+    topList.innerHTML = topList.innerHTML + li;
+  }
+};
 
-}
-
-const getartistinfo = function(artist){
-    const artistname = document.getElementById("artistName")
-    const artistimg = document.getElementById("albumImg")
-    const likedimg = document.getElementById("liked")
-    artistimg.style.backgroundImage = `url("${artist.picture_xl}")`
-    likedimg.setAttribute("src", `${artist.picture_xl}`)
-    artistname.innerText = artist.name
-    addtracks(artist.id)
-}
+const getartistinfo = function (artist) {
+  const artistname = document.getElementById("artistName");
+  const artistimg = document.getElementById("albumImg");
+  const likedimg = document.getElementById("liked");
+  artistimg.style.backgroundImage = `url("${artist.picture_xl}")`;
+  likedimg.setAttribute("src", `${artist.picture_xl}`);
+  artistname.innerText = artist.name;
+  addtracks(artist.id);
+};
 
 const init = function () {
-    getAlbum();
-    const gennarolist = document.querySelector("ul.list-unstyled");
-    gennarolist.innerHTML = "";
-    for (let loop = 0; loop < 25; loop++) {
-        getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
-    }
+  const gennarolist = document.querySelector("ul.list-unstyled");
+  gennarolist.innerHTML = "";
+  for (let loop = 0; loop < 10; loop++) {
+    getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
+  }
+  getAlbum();
+};
 
-  };
-  
-  window.addEventListener("load", function () {
-    init();
-  });
+window.addEventListener("load", function () {
+  init();
+});

@@ -7,12 +7,12 @@ const getRandomSong = function (a_b, list) {
       .then((resp) => {
           if (resp.ok) return resp.json();
           else {
-              getRand();// se la risposta non è ok allora richiama la funzione
+              getRand(list);// se la risposta non è ok allora richiama la funzione
               throw new Error("errore nella chiamata della api");
           }
       })
       .then((data) => {
-          if (data.error) getRand(); // se l'id cercato non esiste richiama la funzione 
+          if (data.error) getRand(list); // se l'id cercato non esiste richiama la funzione 
           else {
               if (data.title) writeAlbum(data, list); // gli do dati di api e la lista per poi scriverci il list-item
               else writeArtist(data, list);
