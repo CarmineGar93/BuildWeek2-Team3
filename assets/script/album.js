@@ -1,23 +1,27 @@
 const addressBarParameters = new URLSearchParams(location.search);
 const albumID = addressBarParameters.get("albumId");
+const audio = document.getElementById('audio');
 const btnPlay = document.getElementById('playIcon');
 const artistPlayed = document.getElementById('artistPlayed')
 const songPlayed = document.getElementById('songPlayed')
 let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
 let playerBarFill = document.querySelector(".player-bar-fill")
+const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
+let srcCurrentAlbum = ''
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 class mySong {
-  constructor(_src, _title, _artist) {
+  constructor(_src, _title, _artist, _cover) {
     this.src = _src,
     this.title = _title
     this.artist = _artist
+    this.cover = _cover
   }
 }
-const audio = document.getElementById('audio');
+
 audio.addEventListener('timeupdate', () => {
   const progress = (audio.currentTime / audio.duration) * 100;
   playerBarFill.style.width = `${progress}%`
@@ -112,12 +116,13 @@ const getRand = function (list, string) {
 const playsong = function (mp3, title, artist){
   artistPlayed.innerText = artist
   songPlayed.innerText = title
+  imgCurrentAlbum.src = srcCurrentAlbum
   audio.src = mp3
   audio.play()
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
                 </svg>`  
-  const songToPlay = new mySong(mp3, title, artist)
+  const songToPlay = new mySong(mp3, title, artist, srcCurrentAlbum)
   localStorage.setItem('listened', JSON.stringify(songToPlay))
 }
 
@@ -132,7 +137,9 @@ const getAlbum = function () {
       console.log(data);
       getartistinfo(data);
       getalbuminfo(data);
+      srcCurrentAlbum = data.cover_small
       getsong(data);
+      
     })
     .catch((err) => {
     });

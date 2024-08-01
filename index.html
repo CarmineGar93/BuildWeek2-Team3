@@ -537,6 +537,7 @@
                                 </div>
                             </div>
                         </footer>
+                        <audio src="" type="audio/mp3" id="audio"></audio>
                         <div class="mt-5 invisible">Per aumentare altezza</div>
                         <div class="mt-5 invisible">Per aumentare altezza</div>
                         <div class="mt-5 invisible">Per aumentare altezza</div>
@@ -610,11 +611,12 @@
             <div class="col-3 d-flex align-items-center">
                 <li class="d-flex align-items-center mb-3 list-group-item border-0">
                     <div>
-                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3" />
+                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3"
+                            id="imgCurrentAlbum" />
                     </div>
                     <div>
-                        <p class="ms-3 font-weight-bold mb-1 text-white">artista</p>
-                        <p class="ms-3 mb-0 text-white">album</p>
+                        <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed">artista</p>
+                        <p class="ms-3 mb-0 text-white" id="artistPlayed">album</p>
                     </div>
                 </li>
             </div>
@@ -633,11 +635,15 @@
                         <path fill-rule="evenodd"
                             d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5" />
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                        class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
+
+                    <div id="playIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                            class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                        </svg>
+                    </div>
+
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-chevron-bar-right mx-2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -651,9 +657,11 @@
                 </div>
                 <div class="d-flex align-items-center">
                     <span class="time" id="current-time">0:00</span>
-                    <div class="player-bar mx-2"><div class="player-bar-fill"></div></div>
-                    
-                    <span class="time">3:30</span>
+                    <div class="player-bar mx-2">
+                        <div class="player-bar-fill"></div>
+                    </div>
+
+                    <span class="time">0:30</span>
                 </div>
             </div>
 
@@ -693,7 +701,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container">
+    <div
+        class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container">
         <div class="row align-items-center">
             <div class="col-6 d-flex align-items-center">
                 <li class="d-flex align-items-center mb-3 list-group-item border-0">
