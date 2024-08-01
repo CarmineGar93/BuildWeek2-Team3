@@ -8,6 +8,16 @@ let currentTimeElement = document.getElementById("current-time"); // Elemento pe
 let playerBarFill = document.querySelector(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 let srcCurrentAlbum = ''
+const listened = JSON.parse(localStorage.getItem('listened'))
+const populatesong = function() {
+  imgCurrentAlbum.src = listened.cover
+  songPlayed.innerText = listened.title
+  artistPlayed.innerText = listened.artist
+  audio.src = listened.src
+}
+if (listened) {
+  populatesong()
+}
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);

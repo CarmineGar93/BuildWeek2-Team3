@@ -1,5 +1,36 @@
 const addressBarParameters = new URLSearchParams(location.search);
 const artistiID = addressBarParameters.get("artistiId");
+const audio = document.getElementById('audio');
+const btnPlay = document.getElementById('playIcon');
+const artistPlayed = document.getElementById('artistPlayed')
+const songPlayed = document.getElementById('songPlayed')
+let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
+let playerBarFill = document.querySelector(".player-bar-fill")
+const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
+let srcCurrentAlbum = ''
+const listened = JSON.parse(localStorage.getItem('listened'))
+const populatesong = function() {
+  imgCurrentAlbum.src = listened.cover
+  songPlayed.innerText = listened.title
+  artistPlayed.innerText = listened.artist
+  audio.src = listened.src
+}
+if (listened) {
+  populatesong()
+}
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+class mySong {
+  constructor(_src, _title, _artist, _cover) {
+    this.src = _src,
+    this.title = _title
+    this.artist = _artist
+    this.cover = _cover
+  }
+}
 
 const getRandomSong = function (a_b, list) {
   const id = randomInt(0, 999999);
@@ -13,17 +44,17 @@ const getRandomSong = function (a_b, list) {
     })
     .then((data) => {
       if (data.error) getRand(list);
-      // if (data.name && data.nb_album < 3) getRand(list, 'artist');
-      // else {
+      if (data.name && data.nb_album < 3) getRand(list, 'artist');
+      else {
         if (data.title)
           writeAlbum(
             data,
             list
           ); // gli do dati di api e la lista per poi scriverci il list-item
         else writeArtist(data, list);
-      // }
+      }
     })
-    .catch((err) => {
+  .catch((err) => {
     });
 };
 
@@ -93,6 +124,51 @@ const addtracks = function (id) {
     });
 };
 
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  playerBarFill.style.width = `${progress}%`
+  currentTimeElement.textContent = formatTime(audio.currentTime)
+  if (audio.currentTime === audio.duration) {
+    btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                  class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                  <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+              </svg>`
+             
+  }
+});
+
+btnPlay.addEventListener('click', () => {
+  if (audio.paused) {
+      audio.play();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
+                </svg>`
+  } else {
+      audio.pause();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                </svg>`
+  } 
+});
+
+
+const playsong = function (mp3, title, artist, cover){
+  artistPlayed.innerText = artist
+  songPlayed.innerText = title
+  imgCurrentAlbum.src = cover
+  audio.src = mp3
+  audio.play()
+  btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
+                </svg>`  
+  const songToPlay = new mySong(mp3, title, artist, cover)
+  localStorage.setItem('listened', JSON.stringify(songToPlay))
+}
+
+
 const writetop = function (top) {
   const songs = top.data
   const topList = document.getElementById("top-list");
@@ -103,7 +179,7 @@ const writetop = function (top) {
 
   for (let j = 0; j < 5; j++) {
     const li = `
-        <li class="d-flex align-items-center mb-3 list-group-item border-0">
+        <li class="d-flex align-items-center mb-3 list-group-item border-0" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}')">
           <div>
           <img src="${songs[j].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
            </div>
