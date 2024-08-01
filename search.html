@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - ricerca</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/artisti.css">
+    <link
+      rel="icon"
+      href="https://www.vectorlogo.zone/logos/spotify/spotify-icon.svg"
+      type="image/x-icon"
+    />
+
+</head>
+
+<body data-bs-theme="dark">
+    <div class="structure">
+        <div class="container-fluid">
+            <div class="row vh-100">
+                <div
+                    class="col-12 position-fixed position-lg-static col-lg-3 col-xl-2 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-y-scroll">
+                    <div>
+                        <nav>
+                            <div class="container">
+                                <div class="row row-cols-3 row-cols-lg-1 py-3 g-1 g-lg-4">
+                                    <div class="col text-center text-lg-start">
+                                        <a href="index.html" class="text-decoration-none text-white"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
+                                                class="bi bi-house-door-fill me-2" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                                            </svg>
+                                            <p class="mb-0 d-lg-inline">Home</p>
+                                        </a>
+                                    </div>
+                                    <div class="col text-center text-lg-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-search me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg>
+                                        <p class="mb-0 d-lg-inline">Cerca</p>
+                                    </div>
+                                    <div class="col text-center text-lg-start">
+                                        <svg width="25" height="25" viewBox="0 0 112 111" fill="none" class="me-2"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="8" height="111" fill="#C4C4C4" />
+                                            <rect x="24" width="8" height="111" fill="#C4C4C4" />
+                                            <rect width="7.96484" height="111.503"
+                                                transform="matrix(0.869849 -0.493319 0.506711 0.862116 48 14.7345)"
+                                                fill="#C4C4C4" />
+                                        </svg>
+                                        <p class="mb-0 d-lg-inline">La tua libreria</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="container my-2 d-none d-lg-block border-bottom border-1">
+                            <div class="row row-cols-1 py-3 g-4">
+                                <div class="col text-center text-lg-start rounded-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                        class="bi bi-plus-square me-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                                    </svg>
+                                    <p class="mb-0 d-lg-inline">Crea playlist</p>
+                                </div>
+                                <div class="col text-center text-lg-start d-flex align-items-center">
+                                    <div class="App__quick-link-featured-img rounded-1 me-2 text-center fs-5">
+                                        ♥
+                                    </div>
+                                    <p class="mb-0 ms-1">Brani che ti piacciono</p>
+                                </div>
+                                <div class="col text-center text-lg-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                        class="bi bi-bookmark me-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                                    </svg>
+                                    <p class="mb-0 d-lg-inline">I tuoi episodi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="playlistList" class="my-3 d-none d-lg-block">
+                            <h5 class="ms-2 mb-3">Potrebbe interessarti:</h5>
+                            <ul class="list-unstyled ms-1">
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                                <li class="my-2">
+                                    <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-5 invisible d-none d-lg-block">Per aumentare altezza</div>
+                        <div class="mt-5 invisible d-none d-lg-block">Per aumentare altezza</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 col-xl-8 px-0 rounded-3 bg-body-gray rounded-3 vh-100 overflow-y-scroll">
+                  <header>
+                    <div>
+                      <div class="d-flex justify-content-between gap-2 pt-3">
+                        <div class="d-flex w-100">
+                          <div class="d-flex align-items-center">
+                            <svg
+                              fill="white"
+                              height="15px"
+                              data-encore-id="icon"
+                              role="img"
+                              aria-hidden="true"
+                              class="pe-3"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                              ></path>
+                            </svg>
+                            <svg
+                              fill="white"
+                              height="15px"
+                              data-encore-id="icon"
+                              role="img"
+                              aria-hidden="true"
+                              class="pe-3"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                              ></path>
+                            </svg>
+                          </div>
+                          <form
+                            role="search"
+                            id="search-form"
+                            class="search-form p-3"
+                          >
+                            <svg
+                              data-encore-id="icon"
+                              role="img"
+                              aria-hidden="true"
+                              class="Svg-sc-ytk21e-0 bneLcE search-icon QbaKKdcHNA2x3_YJvpYu submit-form"
+                              viewBox="0 0 24 24"
+                              height="15px"
+                              fill="white"
+                            >
+                              <path
+                                d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
+                              ></path>
+                            </svg>
+                            <input
+                              id="searchInput"
+                              class="search-input rounded-pill border-0 ms-3 py-2 px-3 fs-7"
+                              data-encore-id="text"
+                              style="color: white"
+                              maxlength="800"
+                              autocorrect="off"
+                              autocapitalize="none"
+                              spellcheck="false"
+                              placeholder="Cosa vuoi ascoltare?"
+                              data-testid="search-input"
+                              required
+                            />
+                            <button type="button" class="btn btn-succes submit-form">CERCA</button>
+                          </form>
+                        </div>
+      
+                        <div class="d-flex align-items-center d-none d-md-flex">
+                          <svg
+                            fill="white"
+                            height="15px"
+                            data-encore-id="icon"
+                            role="img"
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            class="me-3 icon-container"
+                          >
+                            <path
+                              d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
+                            ></path>
+                          </svg>
+                          <div
+                            class="bg-success text-white rounded-circle d-flex justify-content-center align-items-center icon-container flex-shrink-0"
+                            style="width: 30px; height: 30px; font-size: 15px"
+                          >
+                            K
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </header>
+                  <div class="container mb-4">
+                      <div id="esplora">
+                        <h1 id="mainTitle" class="fs-3 fw-bold mt-5">
+                          Sfoglia tutto
+                        </h1>
+                        <div class="row gy-4 mb-3" id="ciro">
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Music</h5>
+                                <img
+                                  src="./assets/imgs/search/image-1.jpeg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">New releases</h5>
+                                <img
+                                  src="./assets/imgs/search/image-2.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Mood</h5>
+                                <img
+                                  src="./assets/imgs/search/image-3.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Made for you</h5>
+                                <img
+                                  src="./assets/imgs/search/image-4.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Latin</h5>
+                                <img
+                                  src="./assets/imgs/search/image-5.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  Dance/ <br />Electronic
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-6.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Rock</h5>
+                                <img
+                                  src="./assets/imgs/search/image-7.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Training</h5>
+                                <img
+                                  src="./assets/imgs/search/image-8.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Podcasts</h5>
+                                <img
+                                  src="./assets/imgs/search/image-9.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Lo-fi Beats</h5>
+                                <img
+                                  src="./assets/imgs/search/image-10.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Discover</h5>
+                                <img
+                                  src="./assets/imgs/search/image-11.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Pop</h5>
+                                <img
+                                  src="./assets/imgs/search/image-12.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Summer Hits</h5>
+                                <img
+                                  src="./assets/imgs/search/image-13.jpeg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Charts</h5>
+                                <img
+                                  src="./assets/imgs/search/image-14.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  Podcasts new <br />
+                                  Releases
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-15.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Soul</h5>
+                                <img
+                                  src="./assets/imgs/search/image-16.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Instrumental</h5>
+                                <img
+                                  src="./assets/imgs/search/image-17.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Sleep</h5>
+                                <img
+                                  src="./assets/imgs/search/image-18.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Caraibi</h5>
+                                <img
+                                  src="./assets/imgs/search/image-19.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Jazz</h5>
+                                <img
+                                  src="./assets/imgs/search/image-20.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  Spotify Single
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-21.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Indie</h5>
+                                <img
+                                  src="./assets/imgs/search/image-22.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Focus</h5>
+                                <img
+                                  src="./assets/imgs/search/image-23.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Guitar</h5>
+                                <img
+                                  src="./assets/imgs/search/image-24.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+      
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Daily</h5>
+                                <img
+                                  src="./assets/imgs/search/image-26.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Party Hits</h5>
+                                <img
+                                  src="./assets/imgs/search/image-27.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Afro</h5>
+                                <img
+                                  src="./assets/imgs/search/image-28.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Classic</h5>
+                                <img
+                                  src="./assets/imgs/search/image-29.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Gaming</h5>
+                                <img
+                                  src="./assets/imgs/search/image-30.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Metal</h5>
+                                <img
+                                  src="./assets/imgs/search/image-31.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Funk</h5>
+                                <img
+                                  src="./assets/imgs/search/image-32.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Punk</h5>
+                                <img
+                                  src="./assets/imgs/search/image-33.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  Ambient <br />Essential
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-34.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">K-Pop</h5>
+                                <img
+                                  src="./assets/imgs/search/image-35.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Blues</h5>
+                                <img
+                                  src="./assets/imgs/search/image-36.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">New Podcasts</h5>
+                                <img
+                                  src="./assets/imgs/search/image-37.jpeg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Country</h5>
+                                <img
+                                  src="./assets/imgs/search/image-39.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Alternative</h5>
+                                <img
+                                  src="./assets/imgs/search/image-40.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Arab Pop</h5>
+                                <img
+                                  src="./assets/imgs/search/image-41.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Pop Mix</h5>
+                                <img
+                                  src="./assets/imgs/search/image-42.png"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Radar</h5>
+                                <img
+                                  src="./assets/imgs/search/image-43.png"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Pop 4 Kids</h5>
+                                <img
+                                  src="./assets/imgs/search/image-44.png"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Road Trip</h5>
+                                <img
+                                  src="./assets/imgs/search/image-45.png"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Tastemaker</h5>
+                                <img
+                                  src="./assets/imgs/search/image-46.jpeg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Today Hits</h5>
+                                <img
+                                  src="./assets/imgs/search/image-47.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Podcasts</h5>
+                                <img
+                                  src="./assets/imgs/search/image-48.jpeg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Hip-Hop</h5>
+                                <img
+                                  src="./assets/imgs/search/image-49.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  New Rock <br />Releases
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-50.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">Relax</h5>
+                                <img
+                                  src="./assets/imgs/search/image-51.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4 mt-4 card-item">
+                            <div class="card musica-card rounded">
+                              <div class="card-body">
+                                <h5 class="card-title fs-5 fw-bold">
+                                  Top Gaming <br />
+                                  Tracks
+                                </h5>
+                                <img
+                                  src="./assets/imgs/search/image-52.jpg"
+                                  class="card-img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="footer">
+                        <div class="row mb-5">
+                          <div class="col-md-6 col-lg-4 col-xl-2">
+                            <h6>Azienda</h6>
+                            <div class="d-flex flex-column">
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                > Chi siamo</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Opportunità di lavoro</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >For the Record</a
+                              >
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4 col-xl-2">
+                            <h6>Communities</h6>
+                            <div class="d-flex flex-column">
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >per Artisti</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Sviluppatori</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Pubblicità</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Investitori</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Venditori</a
+                              >
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4 col-xl-2">
+                            <h6>Link utili</h6>
+                            <div class="d-flex flex-column">
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Assistenza</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >App per cellulare gratuita</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >diritti del consumatore</a
+                              >
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-4 col-xl-2">
+                            <h6> Piani Spotify</h6>
+                            <div class="d-flex flex-column">
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Premium Individual</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Premium Duo</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Premium Family</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Premium Student</a
+                              >
+                              <a
+                                href=""
+                                class="text-secondary link-underline link-underline-opacity-0"
+                                >Spotify Free</a
+                              >
+                            </div>
+                            <audio src="" type="audio/mp3" id="audio"></audio>
+                          </div>
+                          <div class="col-md-6 col-lg-4 col-xl-4 ms-xl-auto">
+                            <div class="d-flex justify-content-end gap-2">
+                              <div class="social">
+                                <svg
+                                  data-encore-id="icon"
+                                  role="img"
+                                  aria-hidden="true"
+                                  viewBox="0 0 16 16"
+                                  class="Svg-sc-ytk21e-0 dCAvla"
+                                >
+                                  <path
+                                    d="M8 1.44c2.136 0 2.389.009 3.233.047.78.036 1.203.166 1.485.276.348.128.663.332.921.598.266.258.47.573.599.921.11.282.24.706.275 1.485.039.844.047 1.097.047 3.233s-.008 2.389-.047 3.232c-.035.78-.166 1.204-.275 1.486a2.654 2.654 0 0 1-1.518 1.518c-.282.11-.706.24-1.486.275-.843.039-1.097.047-3.233.047s-2.39-.008-3.232-.047c-.78-.035-1.204-.165-1.486-.275a2.477 2.477 0 0 1-.921-.599 2.477 2.477 0 0 1-.599-.92c-.11-.282-.24-.706-.275-1.486-.038-.844-.047-1.096-.047-3.232s.009-2.39.047-3.233c.036-.78.166-1.203.275-1.485.129-.348.333-.663.599-.921a2.49 2.49 0 0 1 .92-.599c.283-.11.707-.24 1.487-.275.843-.038 1.096-.047 3.232-.047L8 1.441zm.001-1.442c-2.172 0-2.445.01-3.298.048-.854.04-1.435.176-1.943.373a3.928 3.928 0 0 0-1.417.923c-.407.4-.722.883-.923 1.417-.198.508-.333 1.09-.372 1.942C.01 5.552 0 5.826 0 8c0 2.172.01 2.445.048 3.298.04.853.174 1.433.372 1.941.2.534.516 1.017.923 1.417.4.407.883.722 1.417.923.508.198 1.09.333 1.942.372.852.039 1.126.048 3.299.048 2.172 0 2.445-.01 3.298-.048.853-.04 1.433-.174 1.94-.372a4.087 4.087 0 0 0 2.34-2.34c.199-.508.334-1.09.373-1.942.039-.851.048-1.125.048-3.298s-.01-2.445-.048-3.298c-.04-.853-.174-1.433-.372-1.94a3.924 3.924 0 0 0-.923-1.418A3.928 3.928 0 0 0 13.24.42c-.508-.197-1.09-.333-1.942-.371-.851-.041-1.125-.05-3.298-.05l.001-.001z"
+                                  ></path>
+                                  <path
+                                    d="M8 3.892a4.108 4.108 0 1 0 0 8.216 4.108 4.108 0 0 0 0-8.216zm0 6.775a2.668 2.668 0 1 1 0-5.335 2.668 2.668 0 0 1 0 5.335zm4.27-5.978a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92z"
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div class="social">
+                                <svg
+                                  data-encore-id="icon"
+                                  role="img"
+                                  aria-hidden="true"
+                                  viewBox="0 0 16 16"
+                                  class="Svg-sc-ytk21e-0 dCAvla"
+                                >
+                                  <path
+                                    d="M13.54 3.889a2.968 2.968 0 0 0 1.333-1.683 5.937 5.937 0 0 1-1.929.738 2.992 2.992 0 0 0-.996-.706 2.98 2.98 0 0 0-1.218-.254 2.92 2.92 0 0 0-2.143.889 2.929 2.929 0 0 0-.889 2.15c0 .212.027.442.08.691a8.475 8.475 0 0 1-3.484-.932A8.536 8.536 0 0 1 1.532 2.54a2.993 2.993 0 0 0-.413 1.523c0 .519.12 1 .361 1.445.24.445.57.805.988 1.08a2.873 2.873 0 0 1-1.373-.374v.04c0 .725.23 1.365.69 1.92a2.97 2.97 0 0 0 1.739 1.048 2.937 2.937 0 0 1-1.365.056 2.94 2.94 0 0 0 1.063 1.5 2.945 2.945 0 0 0 1.77.603 5.944 5.944 0 0 1-3.77 1.302c-.243 0-.484-.016-.722-.048A8.414 8.414 0 0 0 5.15 14c.905 0 1.763-.12 2.572-.361.81-.24 1.526-.57 2.147-.988a9.044 9.044 0 0 0 1.683-1.46c.5-.556.911-1.155 1.234-1.798a9.532 9.532 0 0 0 .738-1.988 8.417 8.417 0 0 0 .246-2.429 6.177 6.177 0 0 0 1.508-1.563c-.56.249-1.14.407-1.738.476z"
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div class="social">
+                                <svg
+                                  data-encore-id="icon"
+                                  role="img"
+                                  aria-hidden="true"
+                                  viewBox="0 0 16 16"
+                                  class="Svg-sc-ytk21e-0 dYnaPI"
+                                >
+                                  <path
+                                    d="M16 8a8 8 0 1 0-9.25 7.903v-5.59H4.719V8H6.75V6.237c0-2.005 1.194-3.112 3.022-3.112.875 0 1.79.156 1.79.156V5.25h-1.008c-.994 0-1.304.617-1.304 1.25V8h2.219l-.355 2.313H9.25v5.59A8.002 8.002 0 0 0 16 8z"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-5 container">
+                          <hr />
+                          <div class="col-9 d-flex gap-3 flex-wrap">
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >Legal</a
+                            >
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >Safety & Privacy Center</a
+                            >
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >Privacy Policy</a
+                            >
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >Cookie Settings</a
+                            >
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >About Ads</a
+                            >
+                            <a
+                              href=""
+                              class="text-secondary link-underline link-underline-opacity-0"
+                              >Accessibilità</a
+                            >
+                          </div>
+                          <div class="col-3 d-flex justify-content-end">
+                            <p class="text-secondary">&copy 2024 Spotify AB</p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+                <div class="col-2 d-none d-xl-block px-0 vh-100 overflow-y-scroll gradient-footer">
+                    <div id="song-info-block" class="d-flex flex-column  vh-100">
+                        <div class="d-flex gap-4 pt-3 ms-3 align-items-center mb-3">
+                            <h3 class="h6 mb-0" id="album-title">Nome Canzone</h3>
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI ms-auto" width="17" height="17" fill="#A7A7A7">
+                                <path
+                                    d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+                                </path>
+                            </svg>
+                            <button type="button" class="btn-close me-3" aria-label="Close"></button>
+                        </div>
+                        <div>
+                            <div class="song-card d-flex flex-column justify-content-center p-3 gap-2">
+                                <img src="./assets/imgs/main/image-1.jpg" alt="" class="rounded-3" id="album-cover"/>
+                                <div class="d-flex align-items-center">
+                                    <div id="song-card-info">
+                                        <h2 id="song-title">Titolo Canzone</h2>
+                                        <h3 class="h6" id="artist-name">Artista</h3>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                            class="Svg-sc-ytk21e-0 dYnaPI" width="17" height="17" fill="white">
+                                            <path
+                                                d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z">
+                                            </path>
+                                            <path
+                                                d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center p-3">
+                                <div class="card border-0">
+                                    <img src="./assets/imgs/main/image-1.jpg" class="card-img-top" alt="..." id="artist-cover"/>
+                                    <p class="mt-3 ms-3">
+                                        About the artist
+                                    </p>
+                                    <div class="card-body bg-black rounded-3">
+                                        <h5 class="card-title" id="artist-2">Artista</h5>
+                                        <div class="d-flex align-items-center">
+                                            <p class="text-ligth mb-0">111,963 monthly listeners</p>
+                                            <button class="btn btn-outline-light rounded-pill px-2 py-1 ms-auto">
+                                                Follow
+                                            </button>
+                                        </div>
+                                        <p class="card-text text-ligth mt-3">
+                                            Descrizione artista
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 invisible">Per aumentare altezza</div>
+                        <div class="mt-5 invisible">Per aumentare altezza</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-3 border-top d-none d-lg-block border-succes fixed-bottom fixed-bottom-container">
+        <div class="row align-items-center">
+            <div class="col-3 d-flex align-items-center">
+                <li class="d-flex align-items-center mb-3 list-group-item border-0">
+                    <div>
+                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3"
+                            id="imgCurrentAlbum" />
+                    </div>
+                    <div>
+                        <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed">artista</p>
+                        <p class="ms-3 mb-0 text-white" id="artistPlayed">album</p>
+                    </div>
+                </li>
+            </div>
+
+            <div class="col-6 text-center">
+                <div class="d-flex justify-content-center align-items-center mb-2 icon-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-shuffle mx-2 text-success" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5" />
+                        <path
+                            d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-chevron-bar-left mx-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5" />
+                    </svg>
+
+                    <div id="playIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                            class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                        </svg>
+                    </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-chevron-bar-right mx-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 1 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-repeat mx-2 text-success" viewBox="0 0 16 16">
+                        <path
+                            d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                    </svg>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="time" id="current-time">0:00</span>
+                    <div class="player-bar mx-2">
+                        <div class="player-bar-fill"></div>
+                    </div>
+
+                    <span class="time">0:30</span>
+                </div>
+            </div>
+
+            <div class="col-3 d-flex justify-content-end icon-white align-items-center">
+                <img src="assets/imgs/Mic.png" alt="" width="40">
+                <img src="assets/imgs/Library.png" alt="" width="40">
+                <img src="assets/imgs/Pc.png" alt="" width="40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-volume-up mx-2" viewBox="0 0 16 16">
+                    <path
+                        d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z" />
+                    <path
+                        d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z" />
+                    <path
+                        d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11" />
+                </svg>
+                <div class="player-bar-small mx-2"></div>
+
+                <svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div
+        class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container">
+        <div class="row align-items-center">
+            <div class="col-6 d-flex align-items-center">
+                <li class="d-flex align-items-center mb-3 list-group-item border-0">
+                    <div>
+                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3"
+                            id="imgCurrentAlbum2" />
+                    </div>
+                    <div>
+                        <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed2">artista</p>
+                        <p class="ms-3 mb-0 text-white" id="artistPlayed2">album</p>
+                    </div>
+                </li>
+            </div>
+            <div class="col-6 d-flex justify-content-end icon-white align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-collection mx-3" viewBox="0 0 16 16">
+                    <path
+                        d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-plus-circle mx-2" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                </svg>
+                <div id="playIcon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-play mx-2" viewBox="0 0 16 16">
+                        <path
+                            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+        <div class="player-bar mx-2">
+            <div class="player-bar-fill"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/assets/script/search.js"></script>
+    <script src="/assets/script/popolehome.js"></script>
+</body>
+
+</html>
