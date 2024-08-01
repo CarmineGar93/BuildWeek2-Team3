@@ -14,7 +14,6 @@ const getSearch = function (search) {
 
 // const formHTML = document.getElementById("")
 // const oursearch = formHTML.value
- const mainHTML = document.getElementsByTagName("main")
 // formHTML.addEventListener("submit", function(){
 //     getSearch(oursearch)
 // })
