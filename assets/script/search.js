@@ -68,7 +68,7 @@ function formatTime(seconds) {
 }
 audio.addEventListener("timeupdate", () => {
   const progress = (audio.currentTime / audio.duration) * 100;
-  console.log(playerBarFill);
+
   for (let z = 0; z < playerBarFill.length; z++) {
     playerBarFill[z].style.width = `${progress}%`;
   }
