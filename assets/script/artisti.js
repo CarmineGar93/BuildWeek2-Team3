@@ -274,7 +274,7 @@ const getartistinfo = function (artist) {
 const init = function () {
   const gennarolist = document.querySelector("ul.list-unstyled");
   gennarolist.innerHTML = "";
-  for (let loop = 0; loop < 5; loop++) {
+  for (let loop = 0; loop < 2; loop++) {
     getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
   }
   getAlbum();

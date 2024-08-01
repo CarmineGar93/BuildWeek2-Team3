@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Artist</title>
+    <title>Spotify - ricerca</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/artisti.css">
@@ -176,7 +176,7 @@
                               data-encore-id="icon"
                               role="img"
                               aria-hidden="true"
-                              class="Svg-sc-ytk21e-0 bneLcE search-icon QbaKKdcHNA2x3_YJvpYu"
+                              class="Svg-sc-ytk21e-0 bneLcE search-icon QbaKKdcHNA2x3_YJvpYu submit-form"
                               viewBox="0 0 24 24"
                               height="15px"
                               fill="white"
@@ -198,6 +198,7 @@
                               data-testid="search-input"
                               required
                             />
+                            <button type="button" class="btn btn-succes submit-form">CERCA</button>
                           </form>
                         </div>
       
@@ -225,13 +226,12 @@
                       </div>
                     </div>
                   </header>
-                  <div id="CIRO" class="container-scroll">
-                    <div class="container">
+                  <div class="container mb-4">
                       <div id="esplora">
                         <h1 id="mainTitle" class="fs-3 fw-bold mt-5">
                           Sfoglia tutto
                         </h1>
-                        <div class="row">
+                        <div class="row gy-4 mb-3" id="ciro">
                           <div class="col-12 col-md-4 mt-4 card-item">
                             <div class="card musica-card rounded">
                               <div class="card-body">
@@ -852,17 +852,17 @@
                       <div id="footer">
                         <div class="row mb-5">
                           <div class="col-md-6 col-lg-4 col-xl-2">
-                            <h6>Company</h6>
+                            <h6>Azienda</h6>
                             <div class="d-flex flex-column">
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >About</a
+                                > Chi siamo</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Jobs</a
+                                >Opportunità di lavoro</a
                               >
                               <a
                                 href=""
@@ -877,52 +877,52 @@
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >For Artists</a
+                                >per Artisti</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Developers</a
+                                >Sviluppatori</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Advertising</a
+                                >Pubblicità</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Investors</a
+                                >Investitori</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Vendors</a
+                                >Venditori</a
                               >
                             </div>
                           </div>
                           <div class="col-md-6 col-lg-4 col-xl-2">
-                            <h6>Useful links</h6>
+                            <h6>Link utili</h6>
                             <div class="d-flex flex-column">
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Support</a
+                                >Assistenza</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Free Mobile App</a
+                                >App per cellulare gratuita</a
                               >
                               <a
                                 href=""
                                 class="text-secondary link-underline link-underline-opacity-0"
-                                >Consumer rights</a
+                                >diritti del consumatore</a
                               >
                             </div>
                           </div>
                           <div class="col-md-6 col-lg-4 col-xl-2">
-                            <h6>Spotify Plans</h6>
+                            <h6> Piani Spotify</h6>
                             <div class="d-flex flex-column">
                               <a
                                 href=""
@@ -950,6 +950,7 @@
                                 >Spotify Free</a
                               >
                             </div>
+                            <audio src="" type="audio/mp3" id="audio"></audio>
                           </div>
                           <div class="col-md-6 col-lg-4 col-xl-4 ms-xl-auto">
                             <div class="d-flex justify-content-end gap-2">
@@ -1037,7 +1038,6 @@
                           </div>
                         </div>
                       </div>
-                    </div>
                   </div>
 
                 </div>
@@ -1190,11 +1190,12 @@
             <div class="col-6 d-flex align-items-center">
                 <li class="d-flex align-items-center mb-3 list-group-item border-0">
                     <div>
-                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3" />
+                        <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3"
+                            id="imgCurrentAlbum2" />
                     </div>
                     <div>
-                        <p class="ms-3 font-weight-bold mb-1 text-white">artista</p>
-                        <p class="ms-3 mb-0 text-white">album</p>
+                        <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed2">artista</p>
+                        <p class="ms-3 mb-0 text-white" id="artistPlayed2">album</p>
                     </div>
                 </li>
             </div>
@@ -1210,20 +1211,25 @@
                     <path
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                    class="bi bi-play mx-2" viewBox="0 0 16 16">
-                    <path
-                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-                </svg>
+                <div id="playIcon2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-play mx-2" viewBox="0 0 16 16">
+                        <path
+                            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                    </svg>
+                </div>
+
             </div>
         </div>
-        <div class="bg-white padding-custom mx-2 rounded-3"></div>
+        <div class="player-bar mx-2">
+            <div class="player-bar-fill"></div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="/assets/script/index.js"></script>
+    <script src="/assets/script/search.js"></script>
     <script src="/assets/script/popolehome.js"></script>
 </body>
 
