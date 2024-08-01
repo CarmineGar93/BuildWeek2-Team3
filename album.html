@@ -41,6 +41,10 @@
       src: url(./assets/fonts/CircularStd-Light.otf);
     }
 
+    .width{
+      width: 45px;
+    }
+
     #artist-photo {
       width: 25px;
       height: 25px;
@@ -209,7 +213,7 @@
                         <img src="https://picsum.photos/25/25" id="artist-photo" alt="artist-photo"
                           class="rounded-circle me-2" />
                         <p class="m-0">
-                          <a class="fw-bold text-decoration-none text-white" id="artist-name">Artist Name</a>
+                          <a class="fw-bold text-decoration-none text-white" id="artist-name2">Artist Name</a>
                           • <span id="album-year">2024</span> •
                           <span id="n-of-songs">10</span> brani,
                           <span class="opacity-50" id="album-duration">10 min 30 sec</span>.
@@ -217,11 +221,11 @@
                       </div>
                     </div>
                     <div class="my-3 col-12 d-md-none d-flex flex-column justify-content-end">
-                      <h1 class="fs-1 fw-bold">Album Title</h1>
+                      <h1 class="fs-1 fw-bold" id="title-alb">Album Title</h1>
                       <div class="d-flex align-items-center fs-6">
-                        <img src="https://picsum.photos/25/25" alt="artist-photo" class="rounded-circle me-2" />
+                        <img id="img-alb" src="https://picsum.photos/25/25" alt="artist-photo" class="width rounded-circle me-2" />
                         <p class="m-0">
-                          <span class="fw-bold" id="artist-name">Artist Name</span>
+                          <a class="fw-bold text-decoration-none text-white" id="artist-name">Artist Name</a>
                         </p>
                       </div>
                       <div>
@@ -389,7 +393,7 @@
     </div>
 </div>
   <div
-    class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container">
+    class="container-fluid py-2 border-top border-succes d-lg-none rounded-top-4 position-fixed bottom-custom fixed-bottom-container">
     <div class="row align-items-center">
       <div class="col-6 d-flex align-items-center">
         <li class="d-flex align-items-center mb-3 list-group-item border-0">

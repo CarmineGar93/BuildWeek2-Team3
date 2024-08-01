@@ -143,7 +143,7 @@ const getRandomSong = function (a_b, list) {
     .catch((err) => {});
 };
 
-const writeAlbum = function (album, list) {
+const writeAlbum = function (album, list, n) {
   const gennarolist_item = `
     <li class="my-2 fs-6 d-flex align-content-center">
         <img src="${album.cover_small}" class="mx-2 rounded-1" alt="" />
