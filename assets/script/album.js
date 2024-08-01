@@ -206,10 +206,10 @@ const getalbuminfo = function (album) {
 };
 
 const getsong = function (album) {
-  let artistpic = album.artist.picture;
+  let artistpic = album.artist.picture_xl;
   let albumtitle = album.title;
   let artistname = album.artist.name;
-  let albumcover = album.cover_medium;
+  let albumcover = album.cover_xl;
 
   album.tracks.data.forEach((track) => {
     console.log(track);
