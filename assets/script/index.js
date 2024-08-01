@@ -176,10 +176,8 @@ const writebanner = function(album){
 
 }
 
-const getBanner = function (index) {
-  let id = ''
-  if(index) id = index;
-  else    id = randomInt(0, 99999);
+const getBanner = function () {
+  const id = randomInt(0, 99999);
 
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`)
     .then((resp) => {
@@ -202,16 +200,13 @@ const getBanner = function (index) {
     .catch((err) => {});
 };
 
-const bannermin = function(){
-  getBanner(bannerid - 1)
-}
-
-const bannerplus = function(){
-  getBanner(bannerid + 1)
+const changebanner = function(){
+  getBanner()
 }
 
 
-const writeAlbum = function (album, list, n) {
+
+const writeAlbum = function (album, list) {
   const gennarolist_item = `
     <li class="my-2 fs-6 d-flex align-content-center">
         <img src="${album.cover_small}" class="mx-2 rounded-1" alt="" />

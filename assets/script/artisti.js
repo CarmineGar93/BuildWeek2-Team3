@@ -276,9 +276,13 @@ const artistplus = function(){
 
 const getartistinfo = function (artist) {
   const artistname = document.getElementById("artistName");
+  const fans = document.getElementById("fans")
+  const fan = document.getElementById("fan")
   const artistimg = document.getElementById("albumImg");
   const likedimg = document.getElementById("liked");
   artistimg.style.backgroundImage = `url("${artist.picture_xl}")`;
+  fans.innerText = `${artist.nb_fan} ascoltatori mensili`
+  fan.innerText = `${artist.nb_fan} ascoltatori mensili`
   likedimg.setAttribute("src", `${artist.picture_xl}`);
   artistname.innerText = artist.name;
   currentArtist.innerText = artist.name
