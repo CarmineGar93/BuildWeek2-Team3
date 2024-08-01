@@ -11,6 +11,7 @@ let currentTimeElement = document.getElementById("current-time"); // Elemento pe
 let playerBarFill = document.querySelectorAll(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 const imgCurrentAlbum2 = document.getElementById('imgCurrentAlbum2')
+const currentArtist = document.getElementById('currentArtist')
 
 let srcCurrentAlbum = ''
 const listened = JSON.parse(localStorage.getItem('listened'))
@@ -154,7 +155,6 @@ const addtracks = function (id) {
 
 audio.addEventListener('timeupdate', () => {
   const progress = (audio.currentTime / audio.duration) * 100;
-  console.log(playerBarFill)
   for (let z = 0; z < playerBarFill.length; z++) {
     playerBarFill[z].style.width = `${progress}%`
   }
@@ -268,6 +268,7 @@ const getartistinfo = function (artist) {
   artistimg.style.backgroundImage = `url("${artist.picture_xl}")`;
   likedimg.setAttribute("src", `${artist.picture_xl}`);
   artistname.innerText = artist.name;
+  currentArtist.innerText = artist.name
   addtracks(artist.id);
 };
 
