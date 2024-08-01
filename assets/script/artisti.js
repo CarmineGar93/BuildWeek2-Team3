@@ -2,11 +2,16 @@ const addressBarParameters = new URLSearchParams(location.search);
 const artistiID = addressBarParameters.get("artistiId");
 const audio = document.getElementById('audio');
 const btnPlay = document.getElementById('playIcon');
+const btnPlay2 = document.getElementById('playIcon2');
 const artistPlayed = document.getElementById('artistPlayed')
+const artistPlayed2 = document.getElementById('artistPlayed2')
 const songPlayed = document.getElementById('songPlayed')
+const songPlayed2 = document.getElementById('songPlayed2')
 let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
-let playerBarFill = document.querySelector(".player-bar-fill")
+let playerBarFill = document.querySelectorAll(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
+const imgCurrentAlbum2 = document.getElementById('imgCurrentAlbum2')
+
 let srcCurrentAlbum = ''
 const listened = JSON.parse(localStorage.getItem('listened'))
 
@@ -27,8 +32,11 @@ const rightsidebar = function(song_title, artist, album_cover, artist_cover, alb
 
 const populatesong = function() {
   imgCurrentAlbum.src = listened.cover
+  imgCurrentAlbum2.src = listened.cover
   songPlayed.innerText = listened.title
+  songPlayed2.innerText = listened.title
   artistPlayed.innerText = listened.artist
+  artistPlayed2.innerText = listened.artist
   audio.src = listened.src
   rightsidebar(listened.title, listened.artist, listened.cover, listened.artist_cover, listened.album_title)
 
@@ -146,7 +154,10 @@ const addtracks = function (id) {
 
 audio.addEventListener('timeupdate', () => {
   const progress = (audio.currentTime / audio.duration) * 100;
-  playerBarFill.style.width = `${progress}%`
+  console.log(playerBarFill)
+  for (let z = 0; z < playerBarFill.length; z++) {
+    playerBarFill[z].style.width = `${progress}%`
+  }
   currentTimeElement.textContent = formatTime(audio.currentTime)
   if (audio.currentTime === audio.duration) {
     btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
@@ -164,6 +175,9 @@ btnPlay.addEventListener('click', () => {
       btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
                 </svg>`
+      btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+                            </svg>`          
   } else {
       audio.pause();
       btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
@@ -171,6 +185,35 @@ btnPlay.addEventListener('click', () => {
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
                 </svg>`
+      btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-play mx-2" viewBox="0 0 16 16">
+                    <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                </svg>`          
+  } 
+});
+
+btnPlay2.addEventListener('click', () => {
+  if (audio.paused) {
+      audio.play();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
+                </svg>`
+      btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+                            </svg>`          
+  } else {
+      audio.pause();
+      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                </svg>`
+      btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-play mx-2" viewBox="0 0 16 16">
+                    <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                </svg>`          
   } 
 });
 
@@ -178,11 +221,17 @@ const playsong = function (mp3, title, artist, cover, artist_cover, album_title)
   artistPlayed.innerText = artist
   songPlayed.innerText = title
   imgCurrentAlbum.src = cover
+  artistPlayed2.innerText = artist
+  songPlayed2.innerText = title
+  imgCurrentAlbum2.src = cover
   audio.src = mp3
   audio.play()
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
-                </svg>`  
+                </svg>`
+  btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+              </svg>`                  
   const songToPlay = new mySong(mp3, title, artist, cover, artist_cover, album_title)
   localStorage.setItem('listened', JSON.stringify(songToPlay))
 }
@@ -231,29 +280,6 @@ const init = function () {
   getAlbum();
 };
 
-
-document.getElementById("play-icon").addEventListener("click", function () {
-  let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
-  let playerBarFill = document.querySelector(".player-bar-fill"); // Elemento per la parte riempita della barra
-  let duration = 30;
-  let currentTime = 0;
-  let interval = setInterval(function () {
-    // Imposta un intervallo che si ripete ogni secondo
-    if (currentTime >= duration) {
-      // Se il tempo corrente ha raggiunto la durata totale
-      clearInterval(interval); // Ferma l'intervallo
-      return;
-    }
-    currentTime++;
-    let minutes = Math.floor(currentTime / 60);
-    let seconds = currentTime % 60;
-    currentTimeElement.textContent =
-      minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-    // incremento dei secondi
-    playerBarFill.style.width = (currentTime / duration) * 100 + "%";
-    // la sbarra si va riempendo in base al tmepo
-  }, 1000); // millisecondi tradotti in secondi
-});
 
 window.addEventListener("load", function () {
   init();
