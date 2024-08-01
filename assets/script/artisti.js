@@ -245,7 +245,7 @@ const writetop = function (top) {
     topList.innerHTML = `
   <li class='display-1 text-success'> ARTISTA FALLITO </li>`
 
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < 15; j++) {
     const li = `
         <li class="d-flex align-items-center mb-3 list-group-item border-0" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}', '${songs[j].contributors[0].picture_xl}', '${songs[j].album.title}')">
           <div>
