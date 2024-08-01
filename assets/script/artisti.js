@@ -24,11 +24,13 @@ function formatTime(seconds) {
   return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 class mySong {
-  constructor(_src, _title, _artist, _cover) {
+  constructor(_src, _title, _artist, _cover, _artist_cover, _album_title) {
     this.src = _src,
     this.title = _title
     this.artist = _artist
     this.cover = _cover
+    this.artist_cover = _artist_cover
+    this.album_title = _album_title
   }
 }
 
@@ -154,8 +156,11 @@ btnPlay.addEventListener('click', () => {
   } 
 });
 
+const rightsidebar = function(song_title, artist, artist_cover, album_title){
+  
+}
 
-const playsong = function (mp3, title, artist, cover){
+const playsong = function (mp3, title, artist, cover, artist_cover, album_title){
   artistPlayed.innerText = artist
   songPlayed.innerText = title
   imgCurrentAlbum.src = cover
@@ -164,8 +169,9 @@ const playsong = function (mp3, title, artist, cover){
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
                 </svg>`  
-  const songToPlay = new mySong(mp3, title, artist, cover)
+  const songToPlay = new mySong(mp3, title, artist, cover, artist_cover, album_title)
   localStorage.setItem('listened', JSON.stringify(songToPlay))
+  rightsidebar(title, artist, cover, artist_cover, album_title)
 }
 
 
@@ -179,7 +185,7 @@ const writetop = function (top) {
 
   for (let j = 0; j < 5; j++) {
     const li = `
-        <li class="d-flex align-items-center mb-3 list-group-item border-0" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}')">
+        <li class="d-flex align-items-center mb-3 list-group-item border-0" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}', '${songs[j].contributors[0].picture_xl}', '${songs[j].album.title}')">
           <div>
           <img src="${songs[j].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
            </div>
