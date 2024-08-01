@@ -10,6 +10,7 @@ let playerBarFill = document.querySelectorAll(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 const imgCurrentAlbum2 = document.getElementById('imgCurrentAlbum2')
 const listened = JSON.parse(localStorage.getItem('listened'))
+let bannerid = ''
 
 const rightsidebar = function(song_title, artist, album_cover, artist_cover, album_title){
   const albumtitle = document.getElementById("album-title")
@@ -175,8 +176,11 @@ const writebanner = function(album){
 
 }
 
-const getBanner = function (a_b, list) {
-  const id = randomInt(0, 999999);
+const getBanner = function (index) {
+  let id = ''
+  if(index) id = index;
+  else    id = randomInt(0, 99999);
+
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`)
     .then((resp) => {
       if (resp.ok) return resp.json();
@@ -188,14 +192,24 @@ const getBanner = function (a_b, list) {
     .then((data) => {
       console.log(data)
       if (data.error) getBanner();
-      if (data.fans < 400) getBanner();
+      if (data.fans < 4) getBanner();
       else {
         console.log(data)
         writebanner(data)
+        bannerid = data.id
       }
     })
     .catch((err) => {});
 };
+
+const bannermin = function(){
+  getBanner(bannerid - 1)
+}
+
+const bannerplus = function(){
+  getBanner(bannerid + 1)
+}
+
 
 const writeAlbum = function (album, list, n) {
   const gennarolist_item = `

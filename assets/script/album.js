@@ -11,6 +11,7 @@ let currentTimeElement = document.getElementById("current-time"); // Elemento pe
 let playerBarFill = document.querySelectorAll(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 const imgCurrentAlbum2 = document.getElementById('imgCurrentAlbum2')
+let albid = ''
 const rightsidebar = function (
   song_title,
   artist,
@@ -225,12 +226,22 @@ const getAlbum = function () {
     })
     .then((data) => {
       console.log(data);
+      albid = data.id
       getartistinfo(data);
       getalbuminfo(data);
       getsong(data);
     })
     .catch((err) => {});
 };
+
+const albummin = function(){
+  window.location.replace(`album.html?albumId=${albid - 1}`);
+}
+
+const albumplus = function(){
+  window.location.replace(`album.html?albumId=${albid + 1}`);
+}
+
 
 const getartistinfo = function (album) {
   const artistImg = document.getElementById("artist-photo");

@@ -12,6 +12,7 @@ let playerBarFill = document.querySelectorAll(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 const imgCurrentAlbum2 = document.getElementById('imgCurrentAlbum2')
 const currentArtist = document.getElementById('currentArtist')
+let artistid = ''
 
 let srcCurrentAlbum = ''
 const listened = JSON.parse(localStorage.getItem('listened'))
@@ -122,7 +123,7 @@ const getRand = function (list, string) {
   else getRandomSong(A_B, list);
 };
 
-const getAlbum = function () {
+const getArtist = function () {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistiID}`)
     .then((resp) => {
       console.log(resp);
@@ -131,6 +132,8 @@ const getAlbum = function () {
     })
     .then((data) => {
       console.log(data);
+      artistid = data.id
+      console.log(artistid)
       getartistinfo(data);
     })
     .catch((err) => {
@@ -261,6 +264,16 @@ const writetop = function (top) {
   }
 };
 
+const artistmin = function(){
+  console.log(artistid)
+  window.location.replace(`artisti.html?artistiId=${artistid - 1}`);
+}
+
+const artistplus = function(){
+  console.log(artistid)
+  window.location.replace(`artisti.html?artistiId=${artistid + 1}`);
+}
+
 const getartistinfo = function (artist) {
   const artistname = document.getElementById("artistName");
   const artistimg = document.getElementById("albumImg");
@@ -278,7 +291,7 @@ const init = function () {
   for (let loop = 0; loop < 2; loop++) {
     getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
   }
-  getAlbum();
+  getArtist();
 };
 
 
