@@ -188,6 +188,7 @@ const getartistinfo = function (album) {
   const artistname = document.getElementById("artist-name");
   artistImg.setAttribute("src", `${album.contributors[0].picture}`);
   artistname.innerText = album.contributors[0].name;
+  artistname.href = `artisti.html?artistiId=${album.artist.id}`
 };
 
 const getalbuminfo = function (album) {
