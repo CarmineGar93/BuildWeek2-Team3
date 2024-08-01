@@ -193,13 +193,19 @@ const getRand = function (list, string) {
 
 const playsong = function (mp3, title, artist_name, album_cover, artist_pic, album_title) {
   artistPlayed.innerText = artist_name;
+  artistPlayed2.innerText = artist_name;
   songPlayed.innerText = title;
+  songPlayed2.innerText = title;
   imgCurrentAlbum.src = album_cover;
+  imgCurrentAlbum2.src = album_cover;
   audio.src = mp3;
   audio.play();
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
                 </svg>`;
+                btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+              </svg>`                            
   const songToPlay = new mySong(
     mp3,
     title,
