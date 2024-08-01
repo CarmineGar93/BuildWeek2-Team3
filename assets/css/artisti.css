@@ -23,6 +23,12 @@
         width: 100%;
     }
 
+    @media screen and (min-width: 998px) {
+      #albumImg {
+        height: 75vh;
+      }
+    }
+
     .btn-active {
 
         border: 0.2px solid black;
@@ -78,7 +84,7 @@
     }
 
     .fixed-bottom-container {
-      background-image: linear-gradient(to top, #000000e8, #212529eb);
+      background-image: linear-gradient(to top, #212529fe, #198754);
       color: white;
     }
     
@@ -96,3 +102,36 @@
     .color-navbar {
       background-color: #272a2cc5;
     }
+
+    .bottom-custom {
+      bottom: 82.61px;
+    }
+
+    .padding-custom {
+      padding: 2px 0;
+    }
+
+    .scrollable {
+      height: 100vh;
+      overflow: scroll;
+
+  }
+    ul li img {
+      width: 40px;
+      height: 40px;
+  }
+
+  .player-bar {
+    width: 100%;
+    height: 3px;
+    background-color: grey;
+    position: relative;
+  }
+  .player-bar-fill {
+    width: 0;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
