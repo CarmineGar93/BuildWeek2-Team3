@@ -157,35 +157,36 @@
                             <div class="row">
                                 <div id="albumImg" class="d-flex flex-column justify-content-end px-3">
                                     <h1 id="artistName" class="display-1 fw-bold">
-                                        Pinguini Tattici Nucleari
+                                        
                                     </h1>
+                                    <p class="text-light mt-5 d-none d-lg-block">3.961.093 ascoltatori mensili</p>
                                     <!--Questo h1 prenderà dinamicamente il nome degli artisti-->
                                 </div>
 
                                 <!-- Questo é il container per il play set-->
                                 <div
-                                    class="gradient-background d-flex flex-column justify-content-between align-items-start pt-4 px-3">
-                                    <p class="text-light mb-3">3.961.093 ascoltatori mensili</p>
-                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                    class="gradient-background d-flex flex-column justify-content-between align-items-start pt-4 px-3 pt-3 mb-3">
+                                    <p class="text-muted mb-3 d-lg-none">3.961.093 ascoltatori mensili</p>
+                                    <div class="d-flex justify-content-between justify-content-lg-start align-items-center w-100">
                                         <!-- Parte sinistra con il pulsante e i puntini -->
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center order-lg-1">
                                             <button class="btn btn-active d-flex align-items-center px-4 me-4">
                                                 Seguiti
                                             </button>
                                             <span class="text-light">
-                                                <i class="bi bi-three-dots-vertical display-5"></i>
+                                                <i class="bi bi-three-dots-vertical display-6"></i>
                                                 <!-- Puntini verticali -->
                                             </span>
                                         </div>
                                         <!-- Parte destra con le icone shuffle e play -->
-                                        <div class="d-flex align-items-center">
-                                            <span class="text-light me-4">
-                                                <i class="bi bi-shuffle display-5"></i>
+                                        <div class="d-flex align-items-center order-lg-0 me-lg-4">
+                                            <span class="text-light me-4 d-lg-none">
+                                                <i class="bi bi-shuffle display-6"></i>
                                             </span>
                                             <div class="d-flex justify-content-center align-items-center">
                                                 <span class="text-light">
                                                     <i
-                                                        class="bi bi-play-fill bg-success rounded-circle p-3 display-5"></i>
+                                                        class="bi bi-play-fill bg-success rounded-circle p-3 display-6"></i>
                                                 </span>
                                             </div>
                                         </div>
@@ -203,7 +204,7 @@
                                         <div>
                                             <h5 class="mb-0">Brani che ti piacciono</h5>
                                             <p class="mb-0 text-body-secondary">
-                                                8 brani di pinguini tattici Nucleari
+                                                8 brani di <span id="currentArtist"></span>
                                             </p>
                                         </div>
                                     </div>
