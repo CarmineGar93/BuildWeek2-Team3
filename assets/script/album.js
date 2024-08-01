@@ -1,90 +1,115 @@
 const addressBarParameters = new URLSearchParams(location.search);
 const albumID = addressBarParameters.get("albumId");
-const audio = document.getElementById('audio');
-const btnPlay = document.getElementById('playIcon');
-const artistPlayed = document.getElementById('artistPlayed')
-const songPlayed = document.getElementById('songPlayed')
+const audio = document.getElementById("audio");
+const btnPlay = document.getElementById("playIcon");
+const artistPlayed = document.getElementById("artistPlayed");
+const songPlayed = document.getElementById("songPlayed");
 let currentTimeElement = document.getElementById("current-time"); // Elemento per il tempo corrente
-let playerBarFill = document.querySelector(".player-bar-fill")
-const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
-let srcCurrentAlbum = ''
-const listened = JSON.parse(localStorage.getItem('listened'))
-const populatesong = function() {
-  imgCurrentAlbum.src = listened.cover
-  songPlayed.innerText = listened.title
-  artistPlayed.innerText = listened.artist
-  audio.src = listened.src
-}
+let playerBarFill = document.querySelector(".player-bar-fill");
+const imgCurrentAlbum = document.getElementById("imgCurrentAlbum");
+
+const rightsidebar = function (
+  song_title,
+  artist,
+  album_cover,
+  artist_cover,
+  album_title
+) {
+  const albumtitle = document.getElementById("album-tit");
+  const imgalbum = document.getElementById("album-img");
+  const songtitle = document.getElementById("song-title");
+  const artistname = document.getElementById("artist-nam");
+  const artistname2 = document.getElementById("artist2");
+  const artistcover = document.getElementById("artist-cover");
+  artistcover.setAttribute("src", `${artist_cover}`);
+  artistname2.innerText = artist;
+  artistname.innerText = artist;
+  songtitle.innerText = song_title;
+  albumtitle.innerText = album_title;
+  imgalbum.src = album_cover;
+};
+
+const listened = JSON.parse(localStorage.getItem("listened"));
+console.log(listened);
+const populatesong = function () {
+  imgCurrentAlbum.src = listened.cover;
+  songPlayed.innerText = listened.title;
+  artistPlayed.innerText = listened.artist;
+  audio.src = listened.src;
+  rightsidebar(
+    listened.title,
+    listened.artist,
+    listened.cover,
+    listened.artist_cover,
+    listened.album_title
+  );
+};
 if (listened) {
-  populatesong()
+  populatesong();
 }
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
-  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
 class mySong {
-  constructor(_src, _title, _artist, _cover) {
-    this.src = _src,
-    this.title = _title
-    this.artist = _artist
-    this.cover = _cover
+  constructor(_src, _title, _artist, _cover, _artist_cover, _album_title) {
+    (this.src = _src), (this.title = _title);
+    this.artist = _artist;
+    this.cover = _cover;
+    this.artist_cover = _artist_cover;
+    this.album_title = _album_title;
   }
 }
 
-audio.addEventListener('timeupdate', () => {
+audio.addEventListener("timeupdate", () => {
   const progress = (audio.currentTime / audio.duration) * 100;
-  playerBarFill.style.width = `${progress}%`
-  currentTimeElement.textContent = formatTime(audio.currentTime)
+  playerBarFill.style.width = `${progress}%`;
+  currentTimeElement.textContent = formatTime(audio.currentTime);
   if (audio.currentTime === audio.duration) {
     btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                   class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
                   <path
                       d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-              </svg>`
-             
+              </svg>`;
   }
 });
-btnPlay.addEventListener('click', () => {
+btnPlay.addEventListener("click", () => {
   if (audio.paused) {
-      audio.play();
-      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+    audio.play();
+    btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
-                </svg>`
+                </svg>`;
   } else {
-      audio.pause();
-      btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+    audio.pause();
+    btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                     class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                </svg>`
-  } 
+                </svg>`;
+  }
 });
 
 const getRandomSong = function (a_b, list) {
   const id = randomInt(0, 999999);
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/${a_b}/${id}`)
-      .then((resp) => {
-          if (resp.ok) return resp.json();
-          else {
-              getRand(list);// se la risposta non è ok allora richiama la funzione
-              throw new Error("errore nella chiamata della api");
-          }
-      })
-      .then((data) => {
-        if (data.error) getRand(list);
-        if (data.name && data.nb_album < 3) getRand(list, 'artist');
-        else {
-          if (data.title)
-            writeAlbum(
-              data,
-              list
-            ); // gli do dati di api e la lista per poi scriverci il list-item
-          else writeArtist(data, list);
-        }
-      })
-      .catch((err) => { 
-      });
+    .then((resp) => {
+      if (resp.ok) return resp.json();
+      else {
+        getRand(list); // se la risposta non è ok allora richiama la funzione
+        throw new Error("errore nella chiamata della api");
+      }
+    })
+    .then((data) => {
+      if (data.error) getRand(list);
+      if (data.name && data.nb_album < 3) getRand(list, "artist");
+      else {
+        if (data.title) writeAlbum(data, list);
+        // gli do dati di api e la lista per poi scriverci il list-item
+        else writeArtist(data, list);
+      }
+    })
+    .catch((err) => {});
 };
 
 const writeAlbum = function (album, list) {
@@ -122,19 +147,25 @@ const getRand = function (list, string) {
   else getRandomSong(A_B, list);
 };
 
-
-const playsong = function (mp3, title, artist){
-  artistPlayed.innerText = artist
-  songPlayed.innerText = title
-  imgCurrentAlbum.src = srcCurrentAlbum
-  audio.src = mp3
-  audio.play()
+const playsong = function (mp3, title, artist_name, album_cover, artist_pic, album_title) {
+  artistPlayed.innerText = artist_name;
+  songPlayed.innerText = title;
+  imgCurrentAlbum.src = album_cover;
+  audio.src = mp3;
+  audio.play();
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"/>
-                </svg>`  
-  const songToPlay = new mySong(mp3, title, artist, srcCurrentAlbum)
-  localStorage.setItem('listened', JSON.stringify(songToPlay))
-}
+                </svg>`;
+  const songToPlay = new mySong(
+    mp3,
+    title,
+    artist_name,
+    album_cover,
+    artist_pic,
+    album_title
+  );
+  localStorage.setItem("listened", JSON.stringify(songToPlay));
+};
 
 const getAlbum = function () {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumID}`)
@@ -147,12 +178,9 @@ const getAlbum = function () {
       console.log(data);
       getartistinfo(data);
       getalbuminfo(data);
-      srcCurrentAlbum = data.cover_small
       getsong(data);
-      
     })
-    .catch((err) => {
-    });
+    .catch((err) => {});
 };
 
 const getartistinfo = function (album) {
@@ -171,41 +199,41 @@ const getalbuminfo = function (album) {
   albumimg.setAttribute("src", `${album.cover_medium}`);
   albumtitle.innerText = album.title;
   albumyear.innerText = album.release_date.slice(0, 4);
-  albumtracks.innerText = album.nb_tracks
-  const hourdur = Math.floor(album.duration / 60)
-  const mindur = album.duration - (hourdur * 60)
-  albumduration.innerText = `${hourdur} ore e ${mindur} minutes`
-
+  albumtracks.innerText = album.nb_tracks;
+  const hourdur = Math.floor(album.duration / 60);
+  const mindur = album.duration - hourdur * 60;
+  albumduration.innerText = `${hourdur} ore e ${mindur} minutes`;
 };
 
-
 const getsong = function (album) {
-  const artist = album.contributors[0].name;
+  let artistpic = album.artist.picture;
+  let albumtitle = album.title;
+  let artistname = album.artist.name;
+  let albumcover = album.cover_medium;
+
   album.tracks.data.forEach((track) => {
-    console.log(track)
+    console.log(track);
     const createdli = `        
         <li class="list-group-item d-flex justify-content-between align-items-start bg-black border-0">
-          <div class="ms-2 me-auto" onclick="playsong('${track.preview}', '${track.title}', '${artist}')">
+          <div class="ms-2 me-auto" onclick="playsong('${track.preview}', '${track.title}','${artistname}','${albumcover}', '${artistpic}', '${albumtitle}')">
             <div class="fw-bold">${track.title}</div>
-            <small class="text-muted">${artist}</small>
+            <small class="text-muted">${artistname}</small>
           </div> 
-        </li>`
+        </li>`;
 
     const songlist = document.getElementById("song-list");
-    songlist.innerHTML = songlist.innerHTML + createdli
+    songlist.innerHTML = songlist.innerHTML + createdli;
   });
 };
 
-
 const init = function () {
-  const gennarolist = document.querySelector("ul.list-unstyled");
-    gennarolist.innerHTML = "";
-    for (let loop = 0; loop < 10; loop++) {
-        getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
-    }
   getAlbum();
+  const gennarolist = document.querySelector("ul.list-unstyled");
+  gennarolist.innerHTML = "";
+  for (let loop = 0; loop < 5; loop++) {
+    getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
+  }
 };
-
 
 window.addEventListener("load", function () {
   init();

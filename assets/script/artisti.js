@@ -9,11 +9,29 @@ let playerBarFill = document.querySelector(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 let srcCurrentAlbum = ''
 const listened = JSON.parse(localStorage.getItem('listened'))
+
+const rightsidebar = function(song_title, artist, album_cover, artist_cover, album_title){
+  const albumtitle = document.getElementById("album-title")
+  const imgalbum = document.getElementById("album-cover")
+  const songtitle = document.getElementById("song-title")
+  const artistname = document.getElementById("artist-name")
+  const artistname2 = document.getElementById("artist-2")
+  const artistcover = document.getElementById("artist-cover")
+  artistcover.setAttribute("src", `${artist_cover}`)
+  artistname.innerText = artist
+  artistname2.innerText = artist
+  songtitle.innerText = song_title
+  albumtitle.innerText = album_title
+  imgalbum.setAttribute("src", `${album_cover}`)
+}
+
 const populatesong = function() {
   imgCurrentAlbum.src = listened.cover
   songPlayed.innerText = listened.title
   artistPlayed.innerText = listened.artist
   audio.src = listened.src
+  rightsidebar(listened.title, listened.artist, listened.cover, listened.artist_cover, listened.album_title)
+
 }
 if (listened) {
   populatesong()
@@ -76,7 +94,7 @@ const writeArtist = function (artist, list) {
   const gennarolist_item = `
     <li class="my-2 fs-6 d-flex align-content-center">
     <img src="${artist.picture}" class="mx-2 rounded-circle" alt="" /> 
-    <a href='artisti.html?artistiId=${artist.id}' class='text-decoration-none'>
+    <a href="artisti.html?artistiId=${artist.id}" class="text-decoration-none">
       <p class='text-white'>${name} <br/> <small class='text-muted'>Artist</small></p>
       </a>
     </li>`;
@@ -156,10 +174,6 @@ btnPlay.addEventListener('click', () => {
   } 
 });
 
-const rightsidebar = function(song_title, artist, artist_cover, album_title){
-  
-}
-
 const playsong = function (mp3, title, artist, cover, artist_cover, album_title){
   artistPlayed.innerText = artist
   songPlayed.innerText = title
@@ -171,7 +185,6 @@ const playsong = function (mp3, title, artist, cover, artist_cover, album_title)
                 </svg>`  
   const songToPlay = new mySong(mp3, title, artist, cover, artist_cover, album_title)
   localStorage.setItem('listened', JSON.stringify(songToPlay))
-  rightsidebar(title, artist, cover, artist_cover, album_title)
 }
 
 
@@ -212,7 +225,7 @@ const getartistinfo = function (artist) {
 const init = function () {
   const gennarolist = document.querySelector("ul.list-unstyled");
   gennarolist.innerHTML = "";
-  for (let loop = 0; loop < 10; loop++) {
+  for (let loop = 0; loop < 5; loop++) {
     getRand(gennarolist); // mi serve da mandare nelle funzioni che scrivono le singole list-item
   }
   getAlbum();

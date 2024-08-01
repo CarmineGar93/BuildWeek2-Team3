@@ -1,442 +1,710 @@
 <!DOCTYPE html>
 <html lang="it" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Homepage</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/artisti.css" />
+    <style>
+      .btn-circle {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spotify - Homepage</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="/assets/css/artisti.css" />
-  <style>
-    .btn-circle {
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      padding: 0;
-    }
+      .profile {
+        overflow: hidden;
+        height: 45px;
+      }
 
-    .profile {
-      overflow: hidden;
-      height: 45px;
-    }
+      .profile img,
+      .btn-ctrl {
+        width: 38px;
+        height: 38px;
+      }
 
-    .profile img,
-    .btn-ctrl {
-      width: 38px;
-      height: 38px;
-    }
+      @font-face {
+        font-family: "Circular";
+        src: url(./assets/fonts/CircularStd-Black.otf);
+      }
 
-    @font-face {
-      font-family: "Circular";
-      src: url(./assets/fonts/CircularStd-Black.otf);
-    }
+      h1 {
+        font-family: "Circular", sans-serif;
+      }
 
-    h1 {
-      font-family: "Circular", sans-serif;
-    }
+      @font-face {
+        font-family: "CircularLight";
+        src: url(./assets/fonts/CircularStd-Light.otf);
+      }
 
-    @font-face {
-      font-family: "CircularLight";
-      src: url(./assets/fonts/CircularStd-Light.otf);
-    }
+      #artist-photo {
+        width: 25px;
+        height: 25px;
+      }
 
-
-
-    #artist-photo {
-      width: 25px;
-      height: 25px;
-    }
-
-    #dynamic-gradient-bg {
-      background: linear-gradient(180deg,
+      #dynamic-gradient-bg {
+        background: linear-gradient(
+          180deg,
           #157347,
-          rgba(255, 255, 255, 0)) !important;
-    }
-  </style>
-</head>
+          rgba(255, 255, 255, 0)
+        ) !important;
+      }
+    </style>
+  </head>
 
-<body class="bg-black">
-  <div class="structure">
-    <div class="container-fluid">
-      <div class="row vh-100">
-        <div
-          class="col-12 position-fixed position-lg-static col-lg-3 col-xl-2 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-y-scroll">
-          <div>
-            <nav>
-              <div class="container">
-                <div class="row row-cols-3 row-cols-lg-1 py-3 g-1 g-lg-4">
-                  <div class="col text-center text-lg-start">
-                    <a href="index.html" class="text-decoration-none text-white"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
-                      class="bi bi-house-door-fill me-2" viewBox="0 0 16 16">
+  <body class="bg-black">
+    <div class="structure">
+      <div class="container-fluid">
+        <div class="row vh-100">
+          <div
+            class="col-12 position-fixed position-lg-static col-lg-3 col-xl-2 bottom-0 z-3 px-0 gradient-footer vh-lg-100 overflow-y-scroll"
+          >
+            <div>
+              <nav>
+                <div class="container">
+                  <div class="row row-cols-3 row-cols-lg-1 py-3 g-1 g-lg-4">
+                    <div class="col text-center text-lg-start">
+                      <a
+                        href="index.html"
+                        class="text-decoration-none text-white"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="25"
+                          height="25"
+                          fill="white"
+                          class="bi bi-house-door-fill me-2"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+                          />
+                        </svg>
+                        <p class="mb-0 d-lg-inline">Home</p>
+                      </a>
+                    </div>
+                    <div class="col text-center text-lg-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-search me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                        />
+                      </svg>
+                      <p class="mb-0 d-lg-inline">Cerca</p>
+                    </div>
+                    <div class="col text-center text-lg-start">
+                      <svg
+                        width="25"
+                        height="25"
+                        viewBox="0 0 112 111"
+                        fill="none"
+                        class="me-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="8" height="111" fill="#C4C4C4" />
+                        <rect x="24" width="8" height="111" fill="#C4C4C4" />
+                        <rect
+                          width="7.96484"
+                          height="111.503"
+                          transform="matrix(0.869849 -0.493319 0.506711 0.862116 48 14.7345)"
+                          fill="#C4C4C4"
+                        />
+                      </svg>
+                      <p class="mb-0 d-lg-inline">La tua libreria</p>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <div
+                class="container my-2 d-none d-lg-block border-bottom border-1"
+              >
+                <div class="row row-cols-1 py-3 g-4">
+                  <div class="col text-center text-lg-start rounded-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      class="bi bi-plus-square me-2"
+                      viewBox="0 0 16 16"
+                    >
                       <path
-                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+                      />
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                      />
                     </svg>
-                    <p class="mb-0 d-lg-inline">Home</p>
-                  </a>
+                    <p class="mb-0 d-lg-inline">Crea playlist</p>
+                  </div>
+                  <div
+                    class="col text-center text-lg-start d-flex align-items-center"
+                  >
+                    <div
+                      class="App__quick-link-featured-img rounded-1 me-2 text-center fs-5"
+                    >
+                      ♥
+                    </div>
+                    <p class="mb-0 ms-1">Brani che ti piacciono</p>
                   </div>
                   <div class="col text-center text-lg-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                      class="bi bi-search me-2" viewBox="0 0 16 16">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      class="bi bi-bookmark me-2"
+                      viewBox="0 0 16 16"
+                    >
                       <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"
+                      />
                     </svg>
-                    <p class="mb-0 d-lg-inline">Cerca</p>
-                  </div>
-                  <div class="col text-center text-lg-start">
-                    <svg width="25" height="25" viewBox="0 0 112 111" fill="none" class="me-2"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <rect width="8" height="111" fill="#C4C4C4" />
-                      <rect x="24" width="8" height="111" fill="#C4C4C4" />
-                      <rect width="7.96484" height="111.503"
-                        transform="matrix(0.869849 -0.493319 0.506711 0.862116 48 14.7345)" fill="#C4C4C4" />
-                    </svg>
-                    <p class="mb-0 d-lg-inline">La tua libreria</p>
+                    <p class="mb-0 d-lg-inline">I tuoi episodi</p>
                   </div>
                 </div>
               </div>
-            </nav>
-            <div class="container my-2 d-none d-lg-block border-bottom border-1">
-              <div class="row row-cols-1 py-3 g-4">
-                <div class="col text-center text-lg-start rounded-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-plus-square me-2" viewBox="0 0 16 16">
-                    <path
-                      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                    <path
-                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                  </svg>
-                  <p class="mb-0 d-lg-inline">Crea playlist</p>
-                </div>
-                <div class="col text-center text-lg-start d-flex align-items-center">
-                  <div class="App__quick-link-featured-img rounded-1 me-2 text-center fs-5">
-                    ♥
-                  </div>
-                  <p class="mb-0 ms-1">Brani che ti piacciono</p>
-                </div>
-                <div class="col text-center text-lg-start">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-bookmark me-2" viewBox="0 0 16 16">
-                    <path
-                      d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
-                  </svg>
-                  <p class="mb-0 d-lg-inline">I tuoi episodi</p>
-                </div>
+              <div id="playlistList" class="my-3 d-none d-lg-block">
+                <h5 class="ms-2 mb-3">Potrebbe interessarti:</h5>
+                <ul class="list-unstyled ms-1">
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                  <li class="my-2">
+                    <img
+                      src="https://placedog.net/40/40"
+                      class="mx-2 rounded-1"
+                      alt=""
+                    /><span
+                    class="placeholder col-6 placeholder-sm placeholder-wave"
+                  ></span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-5 invisible d-none d-lg-block">
+                Per aumentare altezza
+              </div>
+              <div class="mt-5 invisible d-none d-lg-block">
+                Per aumentare altezza
               </div>
             </div>
-            <div id="playlistList" class="my-3 d-none d-lg-block">
-              <h5 class="ms-2 mb-3">Potrebbe interessarti:</h5>
-              <ul class="list-unstyled ms-1">
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-                <li class="my-2">
-                  <img src="https://placedog.net/40/40" class="mx-2 rounded-1" alt="" />Genarro
-                </li>
-              </ul>
-            </div>
-            <div class="mt-5 invisible d-none d-lg-block">Per aumentare altezza</div>
-            <div class="mt-5 invisible d-none d-lg-block">Per aumentare altezza</div>
           </div>
-        </div>
-        <div class="col-12 col-lg-9 col-xl-8 px-0 vh-100 overflow-y-scroll">
-          <main>
-            <div id="nav"
-              class="d-flex container-fluid gap-2 align-items-center color-navbar pt-3 pb-3 px-3 sticky-top">
-              <button class="border-0 rounded-circle">
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="border-0 rounded-circle">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-              <button class="border-0 rounded-circle ms-auto">
-                <i class="bi bi-bell"></i>
-              </button>
-              <button class="border-0 rounded-circle p-0">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MEgRnmCwxyL3bBw41AFqhCj-f2Z8rPzjBw&s"
-                  alt="" class="rounded-circle img-fluid imgProfilo" />
-              </button>
-            </div>
-            <div class="container-fluid mt-3">
-              <div class="row">
-                <div id="dynamic-gradient-bg" class="col py-2 gradient">
-                  <div class="row my-4">
-                    <div class="col-12 d-flex col-md-4 justify-content-center">
-                      <img src="https://picsum.photos/300/300" alt="Album Cover" id="album-cover" class="img-fluid" />
-                    </div>
-                    <div class="col-8 d-none d-md-flex flex-column justify-content-end">
-                      <h2 class="fs-5">ALBUM</h2>
-                      <h1 class="fs-1 fw-bold" id="album-title">
-                        Album Title
-                      </h1>
-                      <div class="d-flex align-items-center fs-6">
-                        <img src="https://picsum.photos/25/25" id="artist-photo" alt="artist-photo"
-                          class="rounded-circle me-2" />
-                        <p class="m-0">
-                          <span class="fw-bold" id="artist-name">Artist Name</span>
-                          • <span id="album-year">2024</span> •
-                          <span id="n-of-songs">10</span> brani,
-                          <span class="opacity-50" id="album-duration">10 min 30 sec</span>.
-                        </p>
+          <div class="col-12 col-lg-9 col-xl-8 px-0 vh-100 overflow-y-scroll">
+            <main>
+              <div
+                id="nav"
+                class="d-flex container-fluid gap-2 align-items-center color-navbar pt-3 pb-3 px-3 sticky-top"
+              >
+                <button class="border-0 rounded-circle">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="border-0 rounded-circle">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+                <button class="border-0 rounded-circle ms-auto">
+                  <i class="bi bi-bell"></i>
+                </button>
+                <button class="border-0 rounded-circle p-0">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MEgRnmCwxyL3bBw41AFqhCj-f2Z8rPzjBw&s"
+                    alt=""
+                    class="rounded-circle img-fluid imgProfilo"
+                  />
+                </button>
+              </div>
+              <div class="container-fluid mt-3">
+                <div class="row">
+                  <div id="dynamic-gradient-bg" class="col py-2 gradient">
+                    <div class="row my-4">
+                      <div
+                        class="col-12 d-flex col-md-4 justify-content-center"
+                      >
+                        <img
+                          src="https://picsum.photos/300/300"
+                          alt="Album Cover"
+                          id="album-cover"
+                          class="img-fluid"
+                        />
                       </div>
-                    </div>
-                    <div class="my-3 col-12 d-md-none d-flex flex-column justify-content-end">
-                      <h1 class="fs-1 fw-bold">Album Title</h1>
-                      <div class="d-flex align-items-center fs-6">
-                        <img src="https://picsum.photos/25/25" alt="artist-photo" class="rounded-circle me-2" />
-                        <p class="m-0">
-                          <span class="fw-bold" id="artist-name">Artist Name</span>
-                        </p>
+                      <div
+                        class="col-8 d-none d-md-flex flex-column justify-content-end"
+                      >
+                        <h2 class="fs-5">ALBUM</h2>
+                        <h1 class="fs-1 fw-bold" id="album-title">
+                          <span
+                            class="placeholder col-6 bg-success placeholder-sm placeholder-wave"
+                          ></span>
+                        </h1>
+                        <div class="d-flex align-items-center fs-6">
+                          <img
+                            src="https://picsum.photos/25/25"
+                            id="artist-photo"
+                            alt="artist-photo"
+                            class="rounded-circle me-2"
+                          />
+                          <p class="m-0">
+                            <span class="fw-bold" id="artist-name"
+                              >Artist Name</span
+                            >
+                            • <span id="album-year">2024</span> •
+                            <span id="n-of-songs">10</span> brani,
+                            <span class="opacity-50" id="album-duration"
+                              >10 min 30 sec</span
+                            >.
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="my-2 opacity-50">
-                          <span id="artist-name">Album</span> •
-                          <span id="album-year">2024</span>
-                        </p>
+                      <div
+                        class="my-3 col-12 d-md-none d-flex flex-column justify-content-end"
+                      >
+                        <h1 class="fs-1 fw-bold">Album Title</h1>
+                        <div class="d-flex align-items-center fs-6">
+                          <img
+                            src="https://picsum.photos/25/25"
+                            alt="artist-photo"
+                            class="rounded-circle me-2"
+                          />
+                          <p class="m-0">
+                            <span class="fw-bold" id="artist-name"
+                              >Artist Name</span
+                            >
+                          </p>
+                        </div>
+                        <div>
+                          <p class="my-2 opacity-50">
+                            <span id="artist-name">Album</span> •
+                            <span id="album-year">2024</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="container-fluid">
-              <div class="row">
-                <ol class="list-group list-group-numbered" id="song-list"></ol>
+              <div class="container-fluid">
+                <div class="row">
+                  <ol
+                    class="list-group list-group-numbered"
+                    id="song-list"
+                  ></ol>
+                </div>
+                <audio src="" type="audio/mp3" id="audio"></audio>
+                <div class="mt-5 invisible">Per aumentare altezza</div>
+                <div class="mt-5 invisible">Per aumentare altezza</div>
+                <div class="mt-5 invisible">Per aumentare altezza</div>
               </div>
-              <audio src="" type="audio/mp3" id="audio"></audio>
-              <div class="mt-5 invisible">Per aumentare altezza</div>
-              <div class="mt-5 invisible">Per aumentare altezza</div>
-              <div class="mt-5 invisible">Per aumentare altezza</div>
-            </div>
-          </main>
-        </div>
-        <div class="col-2 d-none d-xl-block px-0 vh-100 overflow-y-scroll gradient-footer">
+            </main>
+          </div>
+          <div
+            class="col-2 d-none d-xl-block px-0 vh-100 overflow-y-scroll gradient-footer"
+          >
           <div id="song-info-block" class="d-flex flex-column  vh-100">
             <div class="d-flex gap-4 pt-3 ms-3 align-items-center mb-3">
-              <h3 class="h6 mb-0">Nome Canzone</h3>
-              <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
-                class="Svg-sc-ytk21e-0 dYnaPI ms-auto" width="17" height="17" fill="#A7A7A7">
-                <path
-                  d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
-                </path>
-              </svg>
-              <button type="button" class="btn-close me-3" aria-label="Close"></button>
+                <h3 class="h6 mb-0" id="album-tit">Nome Canzone</h3>
+                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                    class="Svg-sc-ytk21e-0 dYnaPI ms-auto" width="17" height="17" fill="#A7A7A7">
+                    <path
+                        d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+                    </path>
+                </svg>
+                <button type="button" class="btn-close me-3" aria-label="Close"></button>
             </div>
             <div>
-              <div class="song-card d-flex flex-column justify-content-center p-3 gap-2">
-                <img src="./assets/imgs/main/image-1.jpg" alt="" class="rounded-3" />
-                <div class="d-flex align-items-center">
-                  <div id="song-card-info">
-                    <h2>Titolo Canzone</h2>
-                    <h3 class="h6">Artista</h3>
-                  </div>
-                  <div class="ms-auto">
-                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
-                      class="Svg-sc-ytk21e-0 dYnaPI" width="17" height="17" fill="white">
-                      <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z">
-                      </path>
-                      <path
-                        d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z">
-                      </path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex justify-content-center p-3">
-                <div class="card border-0">
-                  <img src="./assets/imgs/main/image-1.jpg" class="card-img-top" alt="..." />
-                  <p class="mt-3 ms-3">
-                    About the artist
-                  </p>
-                  <div class="card-body bg-black rounded-3">
-                    <h5 class="card-title">Artista</h5>
+                <div class="song-card d-flex flex-column justify-content-center p-3 gap-2">
+                    <img src="./assets/imgs/main/image-1.jpg" alt="" class="rounded-3" id="album-img"/>
                     <div class="d-flex align-items-center">
-                      <p class="text-ligth mb-0">111,963 monthly listeners</p>
-                      <button class="btn btn-outline-light rounded-pill px-2 py-1 ms-auto">
-                        Follow
-                      </button>
+                        <div id="song-card-info">
+                            <h2 id="song-title">Titolo Canzone</h2>
+                            <h3 class="h6" id="artist-nam">Artista</h3>
+                        </div>
+                        <div class="ms-auto">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI" width="17" height="17" fill="white">
+                                <path
+                                    d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z">
+                                </path>
+                                <path
+                                    d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
-                    <p class="card-text text-ligth mt-3">
-                      Descrizione artista
-                    </p>
-                  </div>
                 </div>
-              </div>
+                <div class="d-flex justify-content-center p-3">
+                    <div class="card border-0">
+                        <img src="./assets/imgs/main/image-1.jpg" class="card-img-top" alt="..." id="artist-cover"/>
+                        <p class="mt-3 ms-3">
+                            About the artist
+                        </p>
+                        <div class="card-body bg-black rounded-3">
+                            <h5 class="card-title" id="artist2">Artista</h5>
+                            <div class="d-flex align-items-center">
+                                <p class="text-ligth mb-0">111,963 monthly listeners</p>
+                                <button class="btn btn-outline-light rounded-pill px-2 py-1 ms-auto">
+                                    Follow
+                                </button>
+                            </div>
+                            <p class="card-text text-ligth mt-3">
+                                Descrizione artista
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="mt-5 invisible">Per aumentare altezza</div>
             <div class="mt-5 invisible">Per aumentare altezza</div>
-          </div>
+        </div>
+</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid py-3 border-top d-none d-lg-block border-succes fixed-bottom fixed-bottom-container">
-    <div class="row align-items-center">
-      <div class="col-3 d-flex align-items-center">
-        <li class="d-flex align-items-center mb-3 list-group-item border-0">
-          <div>
-            <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3"
-              id="imgCurrentAlbum" />
-          </div>
-          <div>
-            <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed">artista</p>
-            <p class="ms-3 mb-0 text-white" id="artistPlayed">album</p>
-          </div>
-        </li>
-      </div>
+    <div
+      class="container-fluid py-3 border-top d-none d-lg-block border-succes fixed-bottom fixed-bottom-container"
+    >
+      <div class="row align-items-center">
+        <div class="col-3 d-flex align-items-center">
+          <li class="d-flex align-items-center mb-3 list-group-item border-0">
+            <div>
+              <img
+                src="https://placedog.net/500"
+                alt="cane"
+                class="dog top-img object-fit-cover ms-3"
+                id="imgCurrentAlbum"
+              />
+            </div>
+            <div>
+              <p class="ms-3 font-weight-bold mb-1 text-white" id="songPlayed">
+                artista
+              </p>
+              <p class="ms-3 mb-0 text-white" id="artistPlayed">album</p>
+            </div>
+          </li>
+        </div>
 
-      <div class="col-6 text-center">
-        <div class="d-flex justify-content-center align-items-center mb-2 icon-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-shuffle mx-2 text-success" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5" />
-            <path
-              d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-chevron-bar-left mx-2" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5" />
-          </svg>
-
-          <div id="playIcon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-              class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
+        <div class="col-6 text-center">
+          <div
+            class="d-flex justify-content-center align-items-center mb-2 icon-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-shuffle mx-2 text-success"
+              viewBox="0 0 16 16"
+            >
               <path
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                fill-rule="evenodd"
+                d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"
+              />
+              <path
+                d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-chevron-bar-left mx-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"
+              />
+            </svg>
+
+            <div id="playIcon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                fill="currentColor"
+                class="bi bi-play-circle-fill mx-2"
+                id="play-icon"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+                />
+              </svg>
+            </div>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-chevron-bar-right mx-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 1 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-repeat mx-2 text-success"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z"
+              />
             </svg>
           </div>
+          <div class="d-flex align-items-center">
+            <span class="time" id="current-time">0:00</span>
+            <div class="player-bar mx-2">
+              <div class="player-bar-fill"></div>
+            </div>
 
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-chevron-bar-right mx-2" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 1 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-repeat mx-2 text-success" viewBox="0 0 16 16">
+            <span class="time">0:30</span>
+          </div>
+        </div>
+
+        <div
+          class="col-3 d-flex justify-content-end icon-white align-items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-mic mx-2"
+            viewBox="0 0 16 16"
+          >
             <path
-              d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+              d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"
+            />
+            <path
+              d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-collection mx-2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-pc-display mx-2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0M9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5M1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-volume-up mx-2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"
+            />
+            <path
+              d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"
+            />
+            <path
+              d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"
+            />
+          </svg>
+          <div class="player-bar-small mx-2"></div>
+
+          <svg
+            class="mx-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-arrows-angle-expand"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"
+            />
           </svg>
         </div>
-        <div class="d-flex align-items-center">
-          <span class="time" id="current-time">0:00</span>
-          <div class="player-bar mx-2">
-            <div class="player-bar-fill"></div>
-          </div>
-
-          <span class="time">0:30</span>
+      </div>
+    </div>
+    <div
+      class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container"
+    >
+      <div class="row align-items-center">
+        <div class="col-6 d-flex align-items-center">
+          <li class="d-flex align-items-center mb-3 list-group-item border-0">
+            <div>
+              <img
+                src="https://placedog.net/500"
+                alt="cane"
+                class="dog top-img object-fit-cover ms-3"
+              />
+            </div>
+            <div>
+              <p class="ms-3 font-weight-bold mb-1 text-white">artista</p>
+              <p class="ms-3 mb-0 text-white">album</p>
+            </div>
+          </li>
+        </div>
+        <div
+          class="col-6 d-flex justify-content-end icon-white align-items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-collection mx-3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus-circle mx-2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+            />
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="currentColor"
+            class="bi bi-play mx-2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+            />
+          </svg>
         </div>
       </div>
-
-      <div class="col-3 d-flex justify-content-end icon-white align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-mic mx-2"
-          viewBox="0 0 16 16">
-          <path
-            d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
-          <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-collection mx-2"
-          viewBox="0 0 16 16">
-          <path
-            d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pc-display mx-2"
-          viewBox="0 0 16 16">
-          <path
-            d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0M9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5M1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-volume-up mx-2"
-          viewBox="0 0 16 16">
-          <path
-            d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z" />
-          <path
-            d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z" />
-          <path
-            d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11" />
-        </svg>
-        <div class="player-bar-small mx-2"></div>
-
-        <svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-          class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707" />
-        </svg>
-      </div>
+      <div class="bg-white padding-custom mx-2 rounded-3"></div>
     </div>
-  </div>
-  <div
-    class="container-fluid py-2 border-top border-succes d-lg-none rounded-4 position-fixed bottom-custom fixed-bottom-container">
-    <div class="row align-items-center">
-      <div class="col-6 d-flex align-items-center">
-        <li class="d-flex align-items-center mb-3 list-group-item border-0">
-          <div>
-            <img src="https://placedog.net/500" alt="cane" class="dog top-img object-fit-cover ms-3" />
-          </div>
-          <div>
-            <p class="ms-3 font-weight-bold mb-1 text-white">artista</p>
-            <p class="ms-3 mb-0 text-white">album</p>
-          </div>
-        </li>
-      </div>
-      <div class="col-6 d-flex justify-content-end icon-white align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-collection mx-3"
-          viewBox="0 0 16 16">
-          <path
-            d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-          class="bi bi-plus-circle mx-2" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-          <path
-            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play mx-2"
-          viewBox="0 0 16 16">
-          <path
-            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-        </svg>
-      </div>
-    </div>
-    <div class="bg-white padding-custom mx-2 rounded-3"></div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="/assets/script/album.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/script/album.js"></script>
+  </body>
 </html>

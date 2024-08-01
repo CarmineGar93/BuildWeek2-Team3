@@ -6,11 +6,36 @@ let currentTimeElement = document.getElementById("current-time"); // Elemento pe
 let playerBarFill = document.querySelector(".player-bar-fill")
 const imgCurrentAlbum = document.getElementById('imgCurrentAlbum')
 const listened = JSON.parse(localStorage.getItem('listened'))
+
+const rightsidebar = function(song_title, artist, album_cover, artist_cover, album_title){
+  const albumtitle = document.getElementById("album-title")
+  const imgalbum = document.getElementById("album-cover")
+  const songtitle = document.getElementById("song-title")
+  const artistname = document.getElementById("artist-name")
+  const artistname2 = document.getElementById("artist-2")
+  const artistcover = document.getElementById("artist-cover")
+  artistcover.setAttribute("src", `${artist_cover}`)
+  artistname.innerText = artist
+  artistname2.innerText = artist
+  songtitle.innerText = song_title
+  albumtitle.innerText = album_title
+  imgalbum.setAttribute("src", `${album_cover}`)
+}
+
+
 const populatesong = function() {
   imgCurrentAlbum.src = listened.cover
   songPlayed.innerText = listened.title
   artistPlayed.innerText = listened.artist
   audio.src = listened.src
+  rightsidebar(
+    listened.title,
+    listened.artist,
+    listened.cover,
+    listened.artist_cover,
+    listened.album_title
+  );
+
 }
 if (listened) {
   populatesong()
