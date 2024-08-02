@@ -74,11 +74,17 @@ audio.addEventListener("timeupdate", () => {
   }
   currentTimeElement.textContent = formatTime(audio.currentTime);
   if (audio.currentTime === audio.duration) {
+    currentTimeElement.textContent = '0:30'
     btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                   class="bi bi-play-circle-fill mx-2" id="play-icon" viewBox="0 0 16 16">
                   <path
                       d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-              </svg>`;
+              </svg>`
+              btnPlay2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+              class="bi bi-play mx-2" viewBox="0 0 16 16">
+              <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+          </svg>`
   }
 });
 
