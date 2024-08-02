@@ -290,7 +290,7 @@ const getsong = function (album) {
     console.log(track);
     const createdli = `        
         <li class="list-group-item d-flex justify-content-between align-items-start bg-black border-0">
-          <div class="ms-2 me-auto" 
+          <div class="ms-2 me-auto cursor-pointer" 
           onclick='playsong("${track.preview}", "${track.title}","${artistname}","${albumcover}", "${artistpic}", "${albumtitle}")'>
             <div class="fw-bold">${track.title}</div>
             <small class="text-muted">${artistname}</small>
