@@ -255,7 +255,7 @@ const writetop = function (top) {
 
   for (let j = 0; j < 15; j++) {
     const li = `
-        <li class="d-flex align-items-center mb-3 list-group-item border-0" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}', '${songs[j].contributors[0].picture_xl}', '${songs[j].album.title}')">
+        <li class="d-flex align-items-center mb-3 list-group-item border-0 cursor-pointer" onclick="playsong('${songs[j].preview}', '${songs[j].title}', '${songs[j].artist.name}', '${songs[j].album.cover_big}', '${songs[j].contributors[0].picture_xl}', '${songs[j].album.title}')">
           <div>
           <img src="${songs[j].album.cover}" alt="cane" class="dog top-img object-fit-cover ms-3">
            </div>

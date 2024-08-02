@@ -198,7 +198,7 @@ const createCards = function (datasearch) {
   for (let i = 0; i < datasearch.length; i++) {
     console.log("ciiiiiaoo");  
     let createdcard = `
-         <div class="col-6 col-md-4">
+         <div class="col-6 col-md-4 col-xl-3">
             <div class="card h-100">
               <img src="${datasearch[i].album.cover_big}" class="card-img-top" alt="albumimg" onclick='playsong("${datasearch[i].preview}", "${datasearch[i].title}", "${datasearch[i].artist.name}",  "${datasearch[i].album.cover_big}", "${datasearch[i].artist.picture_big}", "${datasearch[i].album.title}")'>
               <div class="card-body">
