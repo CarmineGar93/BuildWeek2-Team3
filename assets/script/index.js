@@ -200,10 +200,13 @@ const getBanner = function () {
     .catch((err) => {});
 };
 
-const changebanner = function(){
+const bannermin = function(){
   getBanner()
 }
 
+const bannerplus = function(){
+  getBanner()
+}
 
 
 const writeAlbum = function (album, list) {

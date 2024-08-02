@@ -218,6 +218,7 @@ const playsong = function (mp3, title, artist_name, album_cover, artist_pic, alb
 };
 
 const getAlbum = function () {
+  albid = parseInt(albumID)
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumID}`)
     .then((resp) => {
       console.log(resp);
@@ -226,7 +227,6 @@ const getAlbum = function () {
     })
     .then((data) => {
       console.log(data);
-      albid = data.id
       getartistinfo(data);
       getalbuminfo(data);
       getsong(data);

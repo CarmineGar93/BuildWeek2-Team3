@@ -124,6 +124,7 @@ const getRand = function (list, string) {
 };
 
 const getArtist = function () {
+  artistid = parseInt(artistiID)
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistiID}`)
     .then((resp) => {
       console.log(resp);
@@ -132,7 +133,6 @@ const getArtist = function () {
     })
     .then((data) => {
       console.log(data);
-      artistid = data.id
       console.log(artistid)
       getartistinfo(data);
     })
