@@ -84,7 +84,7 @@
     }
 
     .fixed-bottom-container {
-      background-image: linear-gradient(to top, #212529fe, #198754);
+      /* background-image: linear-gradient(to top, #212529fe, #198754); */
       color: white;
     }
     
@@ -141,4 +141,8 @@
   }
 .fixed-bar {
   width: 200px;
+}
+
+.accent {
+  accent-color: white;
 }
