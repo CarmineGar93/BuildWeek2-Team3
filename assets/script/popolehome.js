@@ -28,7 +28,7 @@ const getArtist = function (section) {
     })
     .then((data) => {
       if (data.error) getArtist(section);{
-      if (data.name && data.nb_album < 2) getArtist(section);
+      if (data.name && data.nb_album < 3) getArtist(section);
       else writeartistcards(data, section);    
       }
     })
