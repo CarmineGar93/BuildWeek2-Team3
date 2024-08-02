@@ -213,7 +213,7 @@ const createCards = function (datasearch) {
             </div>  
           </div>`;  
 
-    console.log(createdcard);      
+       
 
     ciro.innerHTML = ciro.innerHTML + createdcard;
   }  
