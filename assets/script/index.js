@@ -200,11 +200,7 @@ const getBanner = function () {
     .catch((err) => {});
 };
 
-const bannermin = function(){
-  getBanner()
-}
-
-const bannerplus = function(){
+const changebanner = function(){
   getBanner()
 }
 
